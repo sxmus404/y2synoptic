@@ -1,2 +1,2 @@
 # y2synoptic
-<img src=/images/cat.png>
+<img src=/images/cat.jpg>
