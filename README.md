@@ -1,5 +1,5 @@
 # y2synoptic
-<img src=/cat.jpg>
+<img src=/cat.jpg size=200px*200px>
 
 
 <h3> Our year 2 synoptic project </h3>
