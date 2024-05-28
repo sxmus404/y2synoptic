@@ -1,6 +1,6 @@
 # y2synoptic
 <img src=/cat.jpg width="200px" height ="200px">
-<img src=/dexter.jpg width="200px" height ="200px">
+<img src=/dexter.jpg width="200px" height ="300px">
 
 
 <h3> Our year 2 synoptic project </h3>
