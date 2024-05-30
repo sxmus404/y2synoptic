@@ -18,6 +18,13 @@ app.get('/cheese', function(req, res) {
   });
 });
 
+// TESTING ONLY - REMOVE 
+app.get('/ico', function(req, res) {
+  res.sendFile('public/images/favicon.ico', {root: __dirname}, (err) => {
+      if (err) {console.log(err);}
+  });
+});
+
 app.listen(port, ()=> {
   console.log('Server Running');
   console.log('http://localhost:3000/');
