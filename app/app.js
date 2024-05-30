@@ -9,6 +9,12 @@ app.get('/', function(req, res) {
   });
 });
 
+app.get('/cheese', function(req, res) {
+  res.sendFile('public/page2.html', {root: __dirname}, (err) => {
+      if (err) {console.log(err);}
+  });
+});
+
 app.listen(port, ()=> {
   console.log('Server Running');
   console.log('http://localhost:3000/');
