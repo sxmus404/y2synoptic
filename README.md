@@ -23,7 +23,7 @@ cd app
 node app.js
 ```
 
-- Lastly, navigate to [http://localhost:3000/]
+- Lastly, navigate [here](http://localhost:3000/)
 
 ## Important Cat Images
 
