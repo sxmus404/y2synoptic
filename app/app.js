@@ -2,10 +2,14 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+// Default route to home page
+app.get('/', function(req, res) {
+  res.sendFile('public/home.html', {root: __dirname}, (err) => {
+      if (err) {console.log(err);}
+  });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}!`);
+app.listen(port, ()=> {
+  console.log('Server Running');
+  console.log('http://localhost:3000/');
 });
