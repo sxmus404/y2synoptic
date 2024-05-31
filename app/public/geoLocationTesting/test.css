@@ -1,0 +1,28 @@
+* {
+    box-sizing:border-box;
+  }
+  
+  body {
+      font: caption;
+  }
+  
+  .top {
+    background:#333;
+    color:white;
+    padding:20px;
+    text-align:center;
+    height:80px;
+    margin:0;
+  }
+  
+  .result {
+    padding:40px;
+    text-align:center;
+    height:100px;
+    margin:0;
+  }
+  
+  #map {
+   width:100%;
+   height:calc(100vh - 180px);
+  }
