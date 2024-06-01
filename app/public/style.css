@@ -4,6 +4,8 @@ body, html {
     padding: 0;
 }
 
+#map { height: 400px; }
+
 .flex-container {
     display: flex;
     margin: 0;

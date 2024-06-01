@@ -25,4 +25,3 @@ showPosition();
 
 
 
-initMap();
