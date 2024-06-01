@@ -1,0 +1,54 @@
+body, html {
+    font-family: Helvetica;
+    margin: 0;
+    padding: 0;
+}
+
+#map { height: 400px; }
+
+.flex-container {
+    display: flex;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    flex-wrap: wrap;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.flex-container > div {
+    text-align: center;
+    font-size: 28px;
+}
+
+.flex-header {
+    background-color: blueviolet;
+    color: white;
+    width: 98vw;
+    height: 10vh;
+    padding: 1vh 1vw 1vh 1vw;
+}
+
+.flex-body-map {
+    background-color: green;
+    color: white;
+    width: 68vw;
+    height: 78vh;
+    padding: 1vh 1vw 1vh 1vw;
+}
+
+.flex-body-side {
+    background-color: burlywood;
+    color: black;
+    width: 28vw;
+    height: 78vh;
+    padding: 1vh 1vw 1vh 1vw;
+}
+
+.flex-body-footer {
+    background-color: blueviolet;
+    color: white;
+    width: 98vw;
+    height: 6vh;
+    padding: 1vh 1vw 1vh 1vw;
+}
