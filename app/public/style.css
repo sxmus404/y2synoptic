@@ -1,7 +1,17 @@
+:root {
+    --brown: #7F4724;
+    --beige: #C2C5AA;
+    --green: #646d4a;
+}
+
 body, html {
     font-family: Helvetica;
     margin: 0;
     padding: 0;
+}
+
+a {
+    text-decoration: none;
 }
 
 .flex-container {
@@ -20,23 +30,74 @@ body, html {
 }
 
 .flex-header {
-    background-color: blueviolet;
-    color: white;
+    background-color: var(--brown);
+    color: var(--beige);
     width: 98vw;
     height: 10vh;
     padding: 1vh 1vw 1vh 1vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.header-logo {
+    background-color: black;
+    border-radius: 100px;
+    width: 5vw;
+    height: 5vw;
+    font-size: 16px;
+}
+
+.header-title {
+    width: 10vw;
+    height: 100%;
+}
+
+.header-title > * { 
+    color: var(--beige);
+    font-size: 32px;
+}
+
+.header-nav {
+    width: 18vw;
+    height: 100%;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 5vw;
+    max-width: 18vw;
+    margin-left: auto;
+    text-align: center;
+}
+
+.header-nav > * { 
+    padding: 3vh 0;
+    margin: 10px;
+    color: var(--beige);
+    cursor: pointer;
+}
+
+.header-nav > *:hover {
+    text-decoration: underline; 
 }
 
 .flex-body-map {
-    background-color: green;
-    color: white;
+    background-color: var(--beige);
+    color: black;
     width: 68vw;
     height: 78vh;
     padding: 1vh 1vw 1vh 1vw;
 }
 
+.flex-body-calendar {
+    background-color: var(--beige);
+    width: 100vw;
+    height: 78vh;
+    padding: 1vh 1vw 1vh 1vw;
+}
+
 .flex-body-side {
-    background-color: burlywood;
+    background-color: var(--beige);
     color: black;
     width: 28vw;
     height: 78vh;
@@ -44,9 +105,14 @@ body, html {
 }
 
 .flex-body-footer {
-    background-color: blueviolet;
-    color: white;
+    background-color: var(--beige);
+    color: black;
     width: 98vw;
     height: 6vh;
     padding: 1vh 1vw 1vh 1vw;
+}
+
+.flex-body-footer > * {
+    font-size: 12px;
+    color: var(--green);
 }
