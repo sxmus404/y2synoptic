@@ -176,3 +176,7 @@ a {
 #calendar-nav-prev, #calendar-nav-next {
     cursor: pointer;
 }
+
+#map-main {
+    height: 50vh;
+}
