@@ -7,41 +7,13 @@
         <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
         <title> GrowR | Other </title>
         <link type="text/css" rel="stylesheet" href="style.css">
-        <!-- <script defer src="geoLocationTest.js"></script> -->
+        <script defer src="geoLocationTest.js"></script>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
         crossorigin=""/>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
          crossorigin=""></script>
-        <script>function showPosition() {
-            console.log("TESAT");
-            if(navigator.geolocation) {
-              var container = L.DomUtil.get('map');
-              if(container != null){
-              container._leaflet_id = null;
-              }
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var positionInfo = "Your current position is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
-                    document.getElementById("result").innerHTML = positionInfo;
-                    var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 19);
-                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                      maxZoom: 50,
-                      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                      }).addTo(map);
-          
-                });
-          
-          
-          
-          
-            } else {
-                alert("Sorry, your browser does not support HTML5 geolocation.");
-            }
-          }
-          
-          
-          showPosition();</script>
     </head>
 
     <body>
@@ -54,7 +26,7 @@
 
             <div class="flex-body-map">
                 <div id="result"></div>
-                <div id="map" style="height: 400px; "></div>
+                <div id="map"></div>
                 <button type="button" onclick="showPosition();">Show Position</button>
             </div>
             <div class="flex-body-side">
