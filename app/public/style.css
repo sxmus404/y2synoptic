@@ -10,6 +10,7 @@ body, html {
     padding: 0;
 }
 
+#map { height: 400px; }
 a {
     text-decoration: none;
 }

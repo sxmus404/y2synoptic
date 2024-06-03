@@ -1,10 +1,9 @@
 const express = require("express");
 const path = require("path");
 const { Client } = require('pg');
-
 const app = express();
-const port = 3000; 
-
+const path = require ("path");
+const port = 3000;
 app.use(express.static(path.join(__dirname + '/public')));
 
 // Default route to home page
@@ -21,12 +20,12 @@ app.get('/calendar', function(req, res) {
   });
 });
 
-// // Route to crop page
-// app.get('/crop', function(req, res) {
-//   res.sendFile('public/crop.html', {root: __dirname}, (err) => {
-//       if (err) {console.log(err);}
-//   });
-// });
+app.get('/test', function(req, res) {
+  res.sendFile('public/geoLocationTesting/test.html', {root: __dirname}, (err) => {
+      if (err) {console.log(err);}
+  });
+});
+
 
 // Route to about page
 app.get('/about', function(req, res) {

@@ -1,6 +1,10 @@
 function showPosition() {
   console.log("TESAT");
   if(navigator.geolocation) {
+    var container = L.DomUtil.get('map');
+    if(container != null){
+    container._leaflet_id = null;
+    }
       navigator.geolocation.getCurrentPosition(function(position) {
           var positionInfo = "Your current position is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
           document.getElementById("result").innerHTML = positionInfo;
@@ -25,4 +29,3 @@ showPosition();
 
 
 
-initMap();
