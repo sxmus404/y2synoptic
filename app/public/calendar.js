@@ -3,20 +3,7 @@ class Calendar {
         this.date = new Date();
         this.year = this.date.getFullYear();
         this.month = this.date.getMonth();
-        this.months = [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"
-        ];
+        this.months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     };
 }
 
@@ -52,7 +39,6 @@ function manipulateCalendar() {
     }
     
     dateCurr.innerText = `${cal.months[cal.month]} ${cal.year}`;
-
     day.innerHTML = lit;
 };
 
@@ -80,6 +66,7 @@ iconNext.addEventListener("click", ()=> {
     } else {
         cal.date = new Date();
     }
+    
     manipulateCalendar();
 });
 
