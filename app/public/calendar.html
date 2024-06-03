@@ -7,6 +7,7 @@
         <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
         <title> GrowR | Calendar </title>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="calendar.js" defer></script>
     </head>
 
     <body>
@@ -19,7 +20,23 @@
             </div>
 
             <div class="flex-body-calendar">
-
+                    <div class="calendar-nav">
+                        <p id="calendar-nav-prev"> &lt; </p>
+                        <p id="calendar-nav-curr"> </p>
+                        <p id="calendar-nav-next"> &gt; </p>
+                    </div>
+                          
+                    <ul class="calendar-months">
+                        <li>Mo</li>
+                        <li>Tu</li>
+                        <li>We</li>
+                        <li>Th</li>
+                        <li>Fr</li>
+                        <li>Sa</li>
+                        <li>Su</li>
+                    </ul>
+                          
+                    <ul id="calendar-days"> </ul>
             </div>
 
             <div class="flex-body-footer"> 
