@@ -18,6 +18,12 @@ app.get('/cheese', function(req, res) {
   });
 });
 
+app.get('/test', function(req, res) {
+  res.sendFile('public/geoLocationTesting/test.html', {root: __dirname}, (err) => {
+      if (err) {console.log(err);}
+  });
+});
+
 // TESTING ONLY - REMOVE 
 app.get('/ico', function(req, res) {
   res.sendFile('public/images/favicon.ico', {root: __dirname}, (err) => {
