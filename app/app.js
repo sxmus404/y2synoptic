@@ -1,9 +1,10 @@
 const express = require("express");
 const path = require("path");
 const { Client } = require('pg');
+
 const app = express();
-const path = require ("path");
 const port = 3000;
+
 app.use(express.static(path.join(__dirname + '/public')));
 
 // Default route to home page
@@ -25,7 +26,6 @@ app.get('/test', function(req, res) {
       if (err) {console.log(err);}
   });
 });
-
 
 // Route to about page
 app.get('/about', function(req, res) {
