@@ -1,6 +1,6 @@
 :root {
-    --brown: #7F4724;
-    --beige: #C2C5AA;
+    --brown: #644017;
+    --beige: #C7C7C7;
     --green: #646d4a;
 }
 
@@ -127,23 +127,51 @@ a {
 }
 
 .calendar-months {
-    display: flex;
     list-style-type: none;
-    justify-content: space-evenly;
-    width: 80vw;
+    display: flex;
+    width: 70vw;
     margin-left: auto;
     margin-right: auto;
     border: 2px solid black;
     height: 5vh;
     margin-top: 1vh;
     padding-top: 2vh;
+    justify-content: space-evenly;
+}
+
+.calendar-months > * {
+    width: 10vw;
+    height: 5vw;
 }
 
 #calendar-days {
     list-style-type: none;
-    width: 80vw;
+    display: flex;
+    width: 70vw;
     height: 50vh;
     margin-left: auto;
     margin-right: auto;
+    flex-wrap: wrap;
+    overflow: hidden;
+    padding-top: 5vh;
+    justify-content: space-evenly;
     border: 2px solid black;
+    gap: 0.5vh;
+}
+
+#calendar-days > * {
+    width: 9vw;
+    height: 10vh;
+}
+
+.calendar-days-active {
+    color: red;
+}
+
+.calendar-days-unfocus {
+    color: var(--beige);
+}
+
+#calendar-nav-prev, #calendar-nav-next {
+    cursor: pointer;
 }
