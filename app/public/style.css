@@ -10,7 +10,6 @@ body, html {
     padding: 0;
 }
 
-#map { height: 400px; }
 a {
     text-decoration: none;
 }
@@ -178,5 +177,27 @@ a {
 }
 
 #map-main {
-    height: 50vh;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+    height: 68vh;
+    border: 2px solid black;
+}
+
+#map-button {
+    float: left;
+    padding: 0.5vh 0.5vw;
+    border: 2px solid black;
+    background-color: var(--beige);
+    cursor: pointer;
+    width: 8vw;
+}
+
+#map-button:hover { 
+    background-color: var(--brown);
+    color: var(--beige);
+}
+
+#map-result {
+    padding-left: 1vw;
+    float: left;
 }
