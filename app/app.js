@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const { Client } = require('pg');
+const { Client } = require("pg");
 
 const app = express();
 const port = 3000;
@@ -9,41 +9,41 @@ app.use(express.static(path.join(__dirname + '/public')));
 
 // Default route to home page
 app.get('/', function(req, res) {
-  res.sendFile('public/home.html', {root: __dirname}, (err) => {
-      if (err) {console.log(err);}
-  });
+  	res.sendFile('public/home.html', {root: __dirname}, (err) => {
+      	if (err) {console.log(err);}
+  	});
 });
 
 // Route to calendar page
 app.get('/calendar', function(req, res) {
-  res.sendFile('public/calendar.html', {root: __dirname}, (err) => {
-      if (err) {console.log(err);}
-  });
+  	res.sendFile('public/calendar.html', {root: __dirname}, (err) => {
+      	if (err) {console.log(err);}
+ 	});
 });
 
 // Route to about page
 app.get('/about', function(req, res) {
-  res.sendFile('public/about.html', {root: __dirname}, (err) => {
-      if (err) {console.log(err);}
-  });
+  	res.sendFile('public/about.html', {root: __dirname}, (err) => {
+      	if (err) {console.log(err);}
+  	});
 });
 
 app.listen(port, ()=> {
-  console.log('Server Running');
-  console.log('http://localhost:3000/');
+  	console.log('Server Running');
+  	console.log('http://localhost:3000/');
 });
 
 const client = new Client({
-  user: 'postgres',
-  host: '81.99.224.111',
-  database: 'postgres', //Connect to Sam's server
-  password: 'zackisgay',
-  port: 5432,
+	user: 'postgres',
+	host: '81.99.224.111',
+	database: 'postgres', //Connect to Sam's server
+	password: 'zackisgay',
+	port: 5432,
 })
 
 client.connect(function(err) {
-  if (err) {throw err;}
-  console.log("Connected!");
+	if (err) {throw err;}
+	console.log("Connected!");
 });
 
 // client.query("SELECT * FROM crop_info", function (err, result){
