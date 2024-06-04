@@ -21,12 +21,6 @@ app.get('/calendar', function(req, res) {
   });
 });
 
-app.get('/test', function(req, res) {
-  res.sendFile('public/geoLocationTesting/test.html', {root: __dirname}, (err) => {
-      if (err) {console.log(err);}
-  });
-});
-
 // Route to about page
 app.get('/about', function(req, res) {
   res.sendFile('public/about.html', {root: __dirname}, (err) => {
