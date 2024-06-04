@@ -21,6 +21,13 @@ app.get('/calendar', function(req, res) {
  	});
 });
 
+// Route to crops page
+app.get('/crops', function(req, res) {
+	res.sendFile('public/crops.html', {root: __dirname}, (err) => {
+		if (err) {console.log(err);}
+   });
+});
+
 // Route to about page
 app.get('/about', function(req, res) {
   	res.sendFile('public/about.html', {root: __dirname}, (err) => {
