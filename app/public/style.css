@@ -81,6 +81,19 @@ a {
     text-decoration: underline; 
 }
 
+.header-nav-active {
+    color: var(--accent-teal);
+    text-decoration: underline 2px;
+    text-underline-offset: 3px;
+    
+}
+
+.header-nav-active:hover {
+    color: var(--accent-teal);
+    text-decoration: underline 2px;
+    text-underline-offset: 3px;
+}
+
 .flex-body-map {
     background-color: var(--light);
     color: var(--dark);
