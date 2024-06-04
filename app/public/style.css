@@ -1,7 +1,8 @@
 :root {
-    --brown: #644017;
-    --beige: #C7C7C7;
-    --green: #646d4a;
+    --dark: #464246;
+    --accent-tan: #CABCB0;
+    --light: #F8F8F8;
+    --accent-teal: #A5B9B9;
 }
 
 body, html {
@@ -10,7 +11,6 @@ body, html {
     padding: 0;
 }
 
-#map { height: 400px; }
 a {
     text-decoration: none;
 }
@@ -31,8 +31,8 @@ a {
 }
 
 .flex-header {
-    background-color: var(--brown);
-    color: var(--beige);
+    background-color: var(--dark);
+    color: var(--light);
     width: 98vw;
     height: 10vh;
     padding: 1vh 1vw 1vh 1vw;
@@ -40,22 +40,21 @@ a {
     flex-direction: row;
 }
 
-.header-logo {
-    background-color: black;
-    border-radius: 100px;
-    width: 5vw;
-    height: 5vw;
-    font-size: 16px;
-}
-
 .header-title {
     width: 10vw;
     height: 100%;
+    max-height: 8vh;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .header-title > * { 
-    color: var(--beige);
+    color: var(--light);
     font-size: 32px;
+}
+
+#header-title-img {
+    max-height: 9vh;
 }
 
 .header-nav {
@@ -74,7 +73,7 @@ a {
 .header-nav > * { 
     padding: 3vh 0;
     margin: 10px;
-    color: var(--beige);
+    color: var(--light);
     cursor: pointer;
 }
 
@@ -82,32 +81,45 @@ a {
     text-decoration: underline; 
 }
 
+.header-nav-active {
+    color: var(--accent-teal);
+    text-decoration: underline 2px;
+    text-underline-offset: 3px;
+    
+}
+
+.header-nav-active:hover {
+    color: var(--accent-teal);
+    text-decoration: underline 2px;
+    text-underline-offset: 3px;
+}
+
 .flex-body-map {
-    background-color: var(--beige);
-    color: black;
+    background-color: var(--light);
+    color: var(--dark);
     width: 68vw;
     height: 78vh;
     padding: 1vh 1vw 1vh 1vw;
 }
 
 .flex-body-calendar {
-    background-color: var(--beige);
+    background-color: var(--light);
     width: 100vw;
     height: 78vh;
     padding: 1vh 1vw 1vh 1vw;
 }
 
 .flex-body-side {
-    background-color: var(--beige);
-    color: black;
+    background-color: var(--light);
+    color: var(--dark);
     width: 28vw;
     height: 78vh;
     padding: 1vh 1vw 1vh 1vw;
 }
 
 .flex-body-footer {
-    background-color: var(--beige);
-    color: black;
+    background-color: var(--light);
+    color: var(--dark);
     width: 98vw;
     height: 6vh;
     padding: 1vh 1vw 1vh 1vw;
@@ -115,7 +127,7 @@ a {
 
 .flex-body-footer > * {
     font-size: 12px;
-    color: var(--green);
+    color: var(--accent-teal);
 }
 
 .calendar-nav {
@@ -133,7 +145,7 @@ a {
     width: 70vw;
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid black;
+    border: 2px solid var(--dark);
     height: 5vh;
     margin-top: 1vh;
     padding-top: 2vh;
@@ -156,7 +168,7 @@ a {
     overflow: hidden;
     padding-top: 5vh;
     justify-content: space-evenly;
-    border: 2px solid black;
+    border: 2px solid var(--dark);
     gap: 0.5vh;
 }
 
@@ -170,9 +182,35 @@ a {
 }
 
 .calendar-days-unfocus {
-    color: var(--beige);
+    color: var(--accent-teal);
 }
 
 #calendar-nav-prev, #calendar-nav-next {
     cursor: pointer;
+}
+
+#map-main {
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+    height: 68vh;
+    border: 2px solid var(--dark);
+}
+
+#map-button {
+    float: left;
+    padding: 0.5vh 0.5vw;
+    border: 2px solid var(--dark);
+    background-color: var(--light);
+    cursor: pointer;
+    width: 8vw;
+}
+
+#map-button:hover { 
+    background-color: var(--accent-tan);
+    color: var(--beige);
+}
+
+#map-result {
+    padding-left: 1vw;
+    float: left;
 }
