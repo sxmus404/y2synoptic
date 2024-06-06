@@ -67,3 +67,23 @@ function createField(fieldNum,cropType,datePlanted,fieldOwner){
     });
 
 };
+
+function addCropInfo(cropType,avgGrowthTime,irrCycle){
+    
+    client.query("INSERT INTO crop_info (",cropType,", ",avgGrowthTime,", ",irrCycle,")VALUES (",cropType,", ",avgGrowthTime,", ",irrCycle,")", function(err,result){
+
+        if(err) throw err;
+
+});
+
+}
+
+function getDateInfo(date){
+
+    client.query("Select estHarvest From field_info WHERE estHarvest = ",date,"", function(err,result){
+
+        if(err) throw err;
+
+});
+
+}
