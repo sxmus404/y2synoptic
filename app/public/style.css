@@ -2,7 +2,7 @@
     --light: #F8F8F8;
     --dark: #464246;
     --accent: #F37C00;
-    --hidden: #FBFBFB;
+    --hidden: #D1D1D1;
 }
 
 body, html {
@@ -104,9 +104,13 @@ a {
 
 .flex-body-calendar {
     background-color: var(--light);
-    width: 100vw;
+    width: 68vw;
     height: 78vh;
     padding: 1vh 1vw 1vh 1vw;
+}
+
+.flex-body-calendar > * {
+    max-width: 68vw;
 }
 
 .flex-body-side {
@@ -115,6 +119,21 @@ a {
     width: 28vw;
     height: 78vh;
     padding: 1vh 1vw 1vh 1vw;
+}
+
+.flex-body-calendar-side {
+    background-color: var(--light);
+    color: var(--dark);
+    width: 28vw;
+    height: 78vh;
+    padding: 1vh 1vw 1vh 1vw;
+    background-color: var(--accent);
+}
+
+.calendar-side-content {
+    width: 28vw;
+    border: 2px solid var(--dark);
+    background-color: var(--accent);
 }
 
 .flex-body-footer {
@@ -142,7 +161,6 @@ a {
 .calendar-months {
     list-style-type: none;
     display: flex;
-    width: 70vw;
     margin-left: auto;
     margin-right: auto;
     border: 2px solid var(--dark);
@@ -160,7 +178,7 @@ a {
 #calendar-days {
     list-style-type: none;
     display: flex;
-    width: 70vw;
+    /* width: 0vw; */
     height: 50vh;
     margin-left: auto;
     margin-right: auto;
