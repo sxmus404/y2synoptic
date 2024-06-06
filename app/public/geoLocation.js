@@ -18,7 +18,7 @@ function showPosition() {
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			}).addTo(map);
 			console.log(lat_ + "//" + lon_);
-			fetch('https://api.openweathermap.org/data/2.5/forecast?lat={1}&lon={1}&appid={93b803fddcaf9fac244d7f72437b87f7}') //API KEY ERROR, WILL WAIT AS MIGHT BE USING TO OFTEN
+			fetch('https://api.openweathermap.org/data/2.5/forecast?lat=1&lon=1&appid=93b803fddcaf9fac244d7f72437b87f7') //API KEY ERROR, WILL WAIT AS MIGHT BE USING TO OFTEN
 			.then(response => response.json())
 			.then(data => console.log(data))
 	
