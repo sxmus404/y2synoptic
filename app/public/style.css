@@ -103,37 +103,35 @@ a {
 }
 
 .flex-body-calendar {
+    width: 98vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.calendar-content{
     background-color: var(--light);
     width: 68vw;
     height: 78vh;
     padding: 1vh 1vw 1vh 1vw;
 }
 
-.flex-body-calendar > * {
-    max-width: 68vw;
-}
-
-.flex-body-side {
-    background-color: var(--light);
-    color: var(--dark);
-    width: 28vw;
-    height: 78vh;
-    padding: 1vh 1vw 1vh 1vw;
-}
-
-.flex-body-calendar-side {
-    background-color: var(--light);
-    color: var(--dark);
-    width: 28vw;
-    height: 78vh;
-    padding: 1vh 1vw 1vh 1vw;
-    background-color: var(--accent);
-}
-
 .calendar-side-content {
+    background-color: var(--light);
+    color: var(--dark);
     width: 28vw;
+    height: 78vh;
+    padding: 1vh 1vw 1vh 1vw;
+}
+
+.calendar-side-content > p {
+    padding-bottom: 1vh;
+}
+
+#calendar-day-info {
     border: 2px solid var(--dark);
-    background-color: var(--accent);
+    width: 26vw;
+    height: 65.25vh;
+    text-align: center;
 }
 
 .flex-body-footer {
