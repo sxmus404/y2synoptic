@@ -1,8 +1,8 @@
 :root {
-    --dark: #464246;
-    --accent-tan: #CABCB0;
     --light: #F8F8F8;
-    --accent-teal: #A5B9B9;
+    --dark: #464246;
+    --accent: #F37C00;
+    --hidden: #FBFBFB;
 }
 
 body, html {
@@ -82,14 +82,14 @@ a {
 }
 
 .header-nav-active {
-    color: var(--accent-teal);
+    color: var(--accent);
     text-decoration: underline 2px;
     text-underline-offset: 3px;
     
 }
 
 .header-nav-active:hover {
-    color: var(--accent-teal);
+    color: var(--accent);
     text-decoration: underline 2px;
     text-underline-offset: 3px;
 }
@@ -127,7 +127,7 @@ a {
 
 .flex-body-footer > * {
     font-size: 12px;
-    color: var(--accent-teal);
+    color: var(--accent);
 }
 
 .calendar-nav {
@@ -178,11 +178,11 @@ a {
 }
 
 .calendar-days-active {
-    color: red;
+    color: var(--accent);
 }
 
 .calendar-days-unfocus {
-    color: var(--accent-teal);
+    color: var(--hidden);
 }
 
 #calendar-nav-prev, #calendar-nav-next {
@@ -206,8 +206,8 @@ a {
 }
 
 #map-button:hover { 
-    background-color: var(--accent-tan);
-    color: var(--beige);
+    background-color: var(--accent);
+    color: var(--dark);
 }
 
 #map-result {
