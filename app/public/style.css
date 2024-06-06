@@ -16,6 +16,7 @@ a {
 }
 
 .flex-container {
+    background-color: var(--light);
     display: flex;
     margin: 0;
     height: 100vh;
@@ -100,6 +101,29 @@ a {
     width: 68vw;
     height: 78vh;
     padding: 1vh 1vw 1vh 1vw;
+}
+
+.flex-body-side {
+    background-color: var(--light);
+    color: var(--dark);
+    width: 28vw;
+    height: 78vh;
+}
+
+.flex-body-crops {
+    background-color: var(--light);
+    color: var(--dark);
+    width: 100vw;
+    height: 80vh;
+    text-align: center;
+}
+
+.flex-body-about {
+    background-color: var(--light);
+    color: var(--dark);
+    width: 100vw;
+    height: 80vh;
+    text-align: center;
 }
 
 .flex-body-calendar {
