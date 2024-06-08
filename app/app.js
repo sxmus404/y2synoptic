@@ -44,7 +44,6 @@ app.listen(port, ()=> {
 });
 
 
-<<<<<<< translator-branch
 app.post('/translate', async (req, res) => {
 	const {text, language} = req.body;
 	try {
@@ -80,5 +79,3 @@ client.connect(function(err) {
 //   console.log(result.rows[1].cropid);                         //important you do result.rows and not just result so that it doesnt print all table info
 //                                                               //to get specific value do "." and then whatever its called in the table(as shown)
 // });
-=======
->>>>>>> main
