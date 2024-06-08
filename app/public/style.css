@@ -205,6 +205,60 @@ a {
     width: 8vw;
 }
 
+.toggle_group {
+    grid-column: 1 / -1;
+    text-align: left;
+
+    #toggle_label {
+      font-size: 14px;
+      color: #888;
+    }
+
+    .toggle{
+      width: 40px;
+      height: 20px;
+      border-radius: 10px;
+    }
+
+    .toggle_input {
+      display: none;
+
+    }
+
+    .toggle_fill {
+      position: relative;
+      width: 40px;
+      height: 20px;
+      border-radius: 10px;
+      background-color: #f3f3f3;
+      transition: 0.25s;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .toggle_fill::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 20px;
+      width: 20px;
+      background-color: whitesmoke;
+      box-shadow: 0 0 10px rgba(0,0,0,0.25);
+      border-radius: 10px;
+      transition: 0.2s;
+    }
+
+    .toggle_input:checked ~ .toggle_fill {
+      background-color: #CABCB0;
+    }
+    .toggle_input:checked ~ .toggle_fill::after {
+      
+      transform: translateX(20px);
+    }
+    
+  }
+
 #map-button:hover { 
     background-color: var(--accent-tan);
     color: var(--beige);

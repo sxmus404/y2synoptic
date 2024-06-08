@@ -21,7 +21,17 @@
         <div class="flex-container">
             <div class="flex-header">
                 <div class="header-title"> <a href="/"> <img src="images/logo-title-img.png" id="header-title-img"> </a> </div>
-                <div class="header-nav translate"> <a href="/calendar"> CALENDAR </a> <a href="/crops"> CROPS </a> <a href="/about"> ABOUT </a> </div>
+                <div class="header-nav"> 
+                    <div class="toggle_group">
+                        <label for="dark" id="toggle_label"> Khmer </label>
+                        <label for="dark" class="toggle">
+                            <input class="toggle_input" type="checkbox" id="dark" name="dark_mode">
+                            <div class="toggle_fill"></div>
+                        </label>
+                    </div>
+                    <!-- <button id="map-button" class="translate" type="button"> translate</button> -->
+                    <a href="/calendar" class="translate"> CALENDAR </a> <a href="/crops" class="translate"> CROPS </a> <a href="/about" class="translate"> ABOUT </a> 
+                </div>
             </div>
 
             <div class="flex-body-map">
