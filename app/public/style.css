@@ -1,8 +1,8 @@
 :root {
-    --dark: #464246;
-    --accent-tan: #CABCB0;
     --light: #F8F8F8;
-    --accent-teal: #A5B9B9;
+    --dark: #464246;
+    --accent: #F37C00;
+    --hidden: #D1D1D1;
 }
 
 body, html {
@@ -16,6 +16,7 @@ a {
 }
 
 .flex-container {
+    background-color: var(--light);
     display: flex;
     margin: 0;
     height: 100vh;
@@ -82,14 +83,14 @@ a {
 }
 
 .header-nav-active {
-    color: var(--accent-teal);
+    color: var(--accent);
     text-decoration: underline 2px;
     text-underline-offset: 3px;
     
 }
 
 .header-nav-active:hover {
-    color: var(--accent-teal);
+    color: var(--accent);
     text-decoration: underline 2px;
     text-underline-offset: 3px;
 }
@@ -102,19 +103,59 @@ a {
     padding: 1vh 1vw 1vh 1vw;
 }
 
-.flex-body-calendar {
-    background-color: var(--light);
-    width: 100vw;
-    height: 78vh;
-    padding: 1vh 1vw 1vh 1vw;
-}
-
 .flex-body-side {
     background-color: var(--light);
     color: var(--dark);
     width: 28vw;
     height: 78vh;
+}
+
+.flex-body-crops {
+    background-color: var(--light);
+    color: var(--dark);
+    width: 100vw;
+    height: 80vh;
+    text-align: center;
+}
+
+.flex-body-about {
+    background-color: var(--light);
+    color: var(--dark);
+    width: 100vw;
+    height: 80vh;
+    text-align: center;
+}
+
+.flex-body-calendar {
+    width: 98vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.calendar-content{
+    background-color: var(--light);
+    width: 68vw;
+    height: 78vh;
     padding: 1vh 1vw 1vh 1vw;
+}
+
+.calendar-side-content {
+    background-color: var(--light);
+    color: var(--dark);
+    width: 28vw;
+    height: 78vh;
+    padding: 1vh 1vw 1vh 1vw;
+}
+
+.calendar-side-content > p {
+    padding-bottom: 1vh;
+}
+
+#calendar-day-info {
+    border: 2px solid var(--dark);
+    width: 26vw;
+    height: 65.25vh;
+    text-align: center;
 }
 
 .flex-body-footer {
@@ -127,7 +168,7 @@ a {
 
 .flex-body-footer > * {
     font-size: 12px;
-    color: var(--accent-teal);
+    color: var(--accent);
 }
 
 .calendar-nav {
@@ -142,7 +183,6 @@ a {
 .calendar-months {
     list-style-type: none;
     display: flex;
-    width: 70vw;
     margin-left: auto;
     margin-right: auto;
     border: 2px solid var(--dark);
@@ -160,7 +200,7 @@ a {
 #calendar-days {
     list-style-type: none;
     display: flex;
-    width: 70vw;
+    /* width: 0vw; */
     height: 50vh;
     margin-left: auto;
     margin-right: auto;
@@ -178,11 +218,11 @@ a {
 }
 
 .calendar-days-active {
-    color: red;
+    color: var(--accent);
 }
 
 .calendar-days-unfocus {
-    color: var(--accent-teal);
+    color: var(--hidden);
 }
 
 #calendar-nav-prev, #calendar-nav-next {
@@ -260,8 +300,8 @@ a {
   }
 
 #map-button:hover { 
-    background-color: var(--accent-tan);
-    color: var(--beige);
+    background-color: var(--accent);
+    color: var(--dark);
 }
 
 #map-result {
