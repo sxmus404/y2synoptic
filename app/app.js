@@ -1,11 +1,14 @@
 const express = require("express");
 const path = require("path");
 const { Client } = require("pg");
+const googleTranslate = require('@vitalets/google-translate-api');
 
 const app = express();
 const port = 3000;
 
+app.use(express.json());
 app.use(express.static(path.join(__dirname + '/public')));
+
 
 // Default route to home page
 app.get('/', function(req, res) {
@@ -39,4 +42,3 @@ app.listen(port, ()=> {
   	console.log('Server Running');
   	console.log('http://localhost:3000/');
 });
-
