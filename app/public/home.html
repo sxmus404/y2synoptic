@@ -8,12 +8,12 @@
         <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
         <title> GrowR </title>
         <link rel="stylesheet" type="text/css" href="style.css">
-
-        <script src="geoLocation.js" defer> </script>
         <script src="translator.js" defer> </script>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""> </script>
-
+        <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
+        <script src="geoLocation.js" defer> </script>
+        <script src="weather.js"></script>
     </head>
 
     <body>
@@ -36,15 +36,20 @@
 
             <div class="flex-body-map">
                 <div id="map-main"> </div> 
-                <button id="map-button" class="translate" type="button" onclick="showPosition()"> Show Position </button>
+
+                <button id="map-button" type="button" onclick="showPosition()"> Show Position </button>
                 <div id="map-result"> </div>
+                
             </div>
-
-            <div class="flex-body-side translate">
+            <div class="flex-body-side">
                 <p> SIDE CONTENT </p>
-                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                <p> Unsure what is going here </p>
+                <div class="weather-widget" id="openweathermap-widget-11"></div>
+
             </div>
 
+     
+            
             <div class="flex-body-footer"> 
                 <p> Synoptic Project 2024 | Group 54 </p>
                 <p> Sam Thomas | Alex Foster | Alex Kravcenko | Jay Wharton | Seb Hall | Zack Langley </p>
