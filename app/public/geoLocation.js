@@ -20,7 +20,12 @@ function showPosition() {
 			console.log(lat_ + "//" + lon_);
 			fetch('https://api.openweathermap.org/data/2.5/forecast?lat='+lat_+'&lon='+lon_+'&appid=93b803fddcaf9fac244d7f72437b87f7') //API KEY ERROR, WILL WAIT AS MIGHT BE USING TO OFTEN
 			.then(response => response.json())
-			.then(data => console.log(data))//https://api.openweathermap.org/data/2.5/forecast?lat=',lat_,'&lon=',lon_,'&appid=93b803fddcaf9fac244d7f72437b87f7
+			.then(data => { 
+				console.log(data);
+				var cityData = data['city'];
+				var idValue = cityData['id'];
+				console.log(idValue);
+			})
 	
 		.catch(err => alert(err));
 		});
