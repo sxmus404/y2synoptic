@@ -1,6 +1,6 @@
 //33ab05142e62d332c43e4a6bd89e6df3 weather API key
+let idValue = '54'
 function showPosition() {
-
 	var lat_;
 	var lon_;
 	if(navigator.geolocation) {
@@ -23,16 +23,13 @@ function showPosition() {
 			.then(data => { 
 				console.log(data);
 				var cityData = data['city'];
-				var idValue = cityData['id'];
+				idValue = cityData['id'];
 				console.log(idValue);
+				setupWeatherWidget()
 			})
 	
 		.catch(err => alert(err));
 		});
-		
-
-		
-		
 		;
 	} else { alert("Sorry, your browser does not support HTML5 geolocation."); }
 }
