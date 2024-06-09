@@ -1,11 +1,14 @@
 const express = require("express");
 const path = require("path");
 const { Client } = require("pg");
+const googleTranslate = require('@vitalets/google-translate-api');
 
 const app = express();
 const port = 3000;
 
+app.use(express.json());
 app.use(express.static(path.join(__dirname + '/public')));
+
 
 // Default route to home page
 app.get('/', function(req, res) {
@@ -21,6 +24,13 @@ app.get('/calendar', function(req, res) {
  	});
 });
 
+// Route to crops page
+app.get('/crops', function(req, res) {
+	res.sendFile('public/crops.html', {root: __dirname}, (err) => {
+		if (err) {console.log(err);}
+   });
+});
+
 // Route to about page
 app.get('/about', function(req, res) {
   	res.sendFile('public/about.html', {root: __dirname}, (err) => {
@@ -32,6 +42,24 @@ app.listen(port, ()=> {
   	console.log('Server Running');
   	console.log('http://localhost:3000/');
 });
+
+
+app.post('/translate', async (req, res) => {
+	const {text, language} = req.body;
+	try {
+		const result = await googleTranslate.translate(text, {to:language});
+		res.json({ translation: result.text });
+	} catch (error) {
+		console.error("Translation error: ", error.message);
+		res.status(500).json({error:error.message});
+	}
+});
+
+// async function waiting() {
+// 	const result = await googleTranslate.translate('Hello, how are you?', { to: 'km' });
+// 	console.log(result.text) // => 'Hello World! How are you?'
+// }
+// waiting()
 
 const client = new Client({
 	user: 'postgres',
