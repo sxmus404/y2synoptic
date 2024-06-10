@@ -95,6 +95,13 @@ a {
     text-underline-offset: 3px;
 }
 
+.header-nav-icon {
+    color: var(--light);
+    height: 2vh;
+    width: 2vw;
+    cursor: pointer;
+}
+
 .flex-body-map {
     background-color: var(--light);
     color: var(--dark);
@@ -110,6 +117,17 @@ a {
     height: 78vh;
     padding: 1vh 1vw 1vh 1vw;
 }
+
+#container-openweathermap-widget-15 > * {
+    box-shadow: none;
+    width: 28vw;
+    border-radius: none;
+    border: 2px solid var(--dark);
+}
+
+.widget-right__title { margin-right: auto; padding-left: 1vw; color: var(--dark); }
+.weather-right__temperature { margin-right: auto; padding-left: 1vw; color: var(--dark); }
+.weather-right__weather { margin-left: auto; padding-right: 1vw; color: var(--dark); }
 
 .flex-body-crops {
     background-color: var(--light);
