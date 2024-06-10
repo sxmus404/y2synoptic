@@ -83,7 +83,31 @@ function getDateInfo(date){
     client.query("Select estHarvest From field_info WHERE estHarvest = ",date,"", function(err,result){
 
         if(err) throw err;
-
+        return result;
 });
 
 }
+
+function getAllFieldInfo(){
+    condition = false;
+    array = [];
+    for(x = 0;condition = false;x++){
+    client.query("Select estHarvest From field_info WHERE fieldnum = ",x,"", function(err,result){
+
+        if(err) throw err;
+        if(result == NULL){
+            condition == true;
+        }
+        else{
+            array.push(result);
+        }
+        num++;
+});
+}
+return array;
+
+}
+
+
+
+
