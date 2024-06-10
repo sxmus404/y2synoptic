@@ -37,9 +37,12 @@ function showPosition() {
 		;
 	} else { alert("Sorry, your browser does not support HTML5 geolocation."); }
 }
-
+var popup = L.popup();
 function onMapClick(e) {
-    alert("You clicked the map at " + e.latlng);
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
 }
 map.on('click', onMapClick);
 showPosition();
