@@ -4,10 +4,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
         <title> GrowR | Calendar </title>
+
+        <script src="scripts/calendar.js" defer></script>
+        <script src="scripts/translator.js" defer> </script>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="calendar.js" defer></script>
+
+        <script src="https://kit.fontawesome.com/680ac0a13f.js" crossorigin="anonymous"> </script>
     </head>
 
     <body>
@@ -15,7 +18,11 @@
         <div class="flex-container">
             <div class="flex-header">
                 <div class="header-title"> <a href="/"> <img src="images/logo-title-img.png" id="header-title-img"> </a> </div>
-                <div class="header-nav"> <a href="/calendar" class="header-nav-active"> CALENDAR </a> <a href="/crops"> CROPS </a> <a href="/about"> ABOUT </a> </div>
+                <div class="header-nav"> 
+                    <a href="/"> <i class="fa-solid fa-house"> </i> </a>
+                    <a href="/calendar" class="header-nav-active"> CALENDAR </a> 
+                    <a href="/crops"> CROPS </a> 
+                    <a href="/about"> ABOUT </a> </div>
             </div>
 
             <div class="flex-body-calendar">
@@ -38,6 +45,7 @@
                         
                     <ul id="calendar-days"> </ul>
                 </div>
+                
                 <div class="calendar-side-content">
                     <p> Day Info </p>
                     <div id="calendar-day-info"> 
