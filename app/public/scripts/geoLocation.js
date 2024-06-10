@@ -2,15 +2,11 @@
 var map;
 var lat_;
 var lon_;
-document.addEventListener("DOMContentLoaded", (event) => {
-	
-  });
-function showPosition() {
-
-	lat_;
-	lon_;
 let idValue = '54'
 let currentWeather = "n/a"
+document.addEventListener("DOMContentLoaded", (event) => {
+	showPosition();
+  });
 function showPosition() {
 	var lat_;
 	var lon_;
@@ -52,7 +48,7 @@ function showPosition() {
 		});
 		;
 	} else { alert("Sorry, your browser does not support HTML5 geolocation."); }
-}
+
 function onMapClick(e) {
 	alert(e.latlng)
     popup
