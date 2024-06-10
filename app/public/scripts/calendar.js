@@ -72,7 +72,8 @@ iconNext.addEventListener("click", ()=> {
 
 day.addEventListener("click", function(e) {
     if (e.target) {
-      alert(e.target.innerText);
+        
+        alert(new Date(cal.year, cal.month, e.target.innerText));
     }
 });
 
