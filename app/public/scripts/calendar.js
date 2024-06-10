@@ -70,4 +70,10 @@ iconNext.addEventListener("click", ()=> {
     manipulateCalendar();
 });
 
+day.addEventListener("click", function(e) {
+    if (e.target) {
+      alert(e.target.innerText);
+    }
+});
+
 manipulateCalendar();

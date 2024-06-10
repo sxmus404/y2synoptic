@@ -244,6 +244,7 @@ a {
 #calendar-days > * {
     width: 9vw;
     height: 10vh;
+    cursor: pointer;
 }
 
 .calendar-days-active {
