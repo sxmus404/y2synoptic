@@ -108,6 +108,7 @@ a {
     color: var(--dark);
     width: 28vw;
     height: 78vh;
+    padding: 1vh 1vw 1vh 1vw;
 }
 
 .flex-body-crops {
@@ -171,11 +172,16 @@ a {
     color: var(--accent);
 }
 
-.weather-widget{
+.weather-widget {
+    max-width: 28vw;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 400px;
-    height: 300px;
+    padding-top: 1vh;
+    box-shadow: none;
+}
+
+#openweathermap-widget-15 {
+    box-shadow: none;
 }
 
 .calendar-nav {
@@ -207,7 +213,6 @@ a {
 #calendar-days {
     list-style-type: none;
     display: flex;
-    /* width: 0vw; */
     height: 50vh;
     margin-left: auto;
     margin-right: auto;
