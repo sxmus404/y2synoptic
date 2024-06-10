@@ -5,13 +5,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> GrowR </title>
-        <link rel="stylesheet" type="text/css" href="style.css">
         <script src="translator.js" defer> </script>
+        <script src="https://kit.fontawesome.com/680ac0a13f.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""> </script>
         <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
         <script src="geoLocation.js" defer> </script>
         <script src="weather.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 
     <body>
@@ -20,15 +21,18 @@
             <div class="flex-header">
                 <div class="header-title"> <a href="/"> <img src="images/logo-title-img.png" id="header-title-img"> </a> </div>
                 <div class="header-nav"> 
-                    <div class="toggle_group">
+                    <!-- <div class="toggle_group">
                         <label for="dark" id="toggle_label"> Khmer </label>
                         <label for="dark" class="toggle">
                             <input class="toggle_input" type="checkbox" id="dark" name="dark_mode">
                             <div class="toggle_fill"></div>
                         </label>
-                    </div>
+                    </div> -->
                     <!-- <button id="map-button" class="translate" type="button"> translate</button> -->
-                    <a href="/calendar" class="translate"> CALENDAR </a> <a href="/crops" class="translate"> CROPS </a> <a href="/about" class="translate"> ABOUT </a> 
+                    <a href="/"> <i class="fa-solid fa-house"> </i> </a>
+                    <a href="/calendar" class="translate"> CALENDAR </a>
+                    <a href="/crops" class="translate"> CROPS </a>
+                    <a href="/about" class="translate"> ABOUT </a> 
                 </div>
             </div>
 
