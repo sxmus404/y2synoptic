@@ -19,5 +19,5 @@ function setupWeatherWidget() {
         script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(script, s);
-    })();
+        })();
 }
