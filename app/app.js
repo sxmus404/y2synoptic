@@ -9,6 +9,15 @@ const port = 3000;
 app.use(express.json());
 app.use(express.static(path.join(__dirname + '/public')));
 
+// Create a client for connecting to the database
+const client = new Client({
+	user: 'postgres',
+	host: '81.99.224.111',
+	database: 'postgres',
+	password: 'zackisgay',
+	port: 5432
+});
+
 // Default route to home page
 app.get('/', function(req, res) {
   	res.sendFile('public/home.html', {root: __dirname}, (err) => {
@@ -37,11 +46,6 @@ app.get('/about', function(req, res) {
   	});
 });
 
-app.listen(port, ()=> {
-  	console.log('Server Running');
-  	console.log('http://localhost:3000/');
-});
-
 app.post('/translate', async(req, res) => {
 	const {text, language} = req.body;
 	try {
@@ -53,21 +57,26 @@ app.post('/translate', async(req, res) => {
 	}
 });
 
-const client = new Client({
-	user: 'postgres',
-	host: '81.99.224.111',
-	database: 'postgres', //Connect to Sam's server
-	password: 'zackisgay',
-	port: 5432,
-})
-
-client.connect(function(err) {
-	if (err) {throw err;}
-	console.log("Connected!");
+app.post('/query', async(req, res) => {
+	pgConnect().then(data => {
+		res.send(data);
+	});
 });
 
-// client.query("SELECT * FROM crop_info", function (err, result){
-//   if (err) throw err;                                         //Generalised code on how to make a query
-//   console.log(result.rows[1].cropid);                         //important you do result.rows and not just result so that it doesnt print all table info
-//                                                               //to get specific value do "." and then whatever its called in the table(as shown)
-// });
+app.listen(port, ()=> {
+  	console.log('Server Running');
+  	console.log('http://localhost:3000/');
+});
+
+async function pgConnect() {
+	await client.connect();
+	try { return await client.query('SELECT * FROM crop_info');
+	} catch (err) { console.error(err);
+	} finally { await client.end() }
+}
+
+// function getCrops() { 
+// 	return new Promise((resolve, reject) => {
+// 		client.query("SELECT * FROM crop_info");
+// 	});
+// };
