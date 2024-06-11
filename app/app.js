@@ -43,23 +43,16 @@ app.listen(port, ()=> {
   	console.log('http://localhost:3000/');
 });
 
-
-app.post('/translate', async (req, res) => {
+app.post('/translate', async(req, res) => {
 	const {text, language} = req.body;
 	try {
-		const result = await googleTranslate.translate(text, {to:language});
-		res.json({ translation: result.text });
+		const result = await googleTranslate.translate(text, {to: language});
+		res.json({translation: result.text});
 	} catch (error) {
 		console.error("Translation error: ", error.message);
-		res.status(500).json({error:error.message});
+		res.status(500).json({error: error.message});
 	}
 });
-
-// async function waiting() {
-// 	const result = await googleTranslate.translate('Hello, how are you?', { to: 'km' });
-// 	console.log(result.text) // => 'Hello World! How are you?'
-// }
-// waiting()
 
 const client = new Client({
 	user: 'postgres',

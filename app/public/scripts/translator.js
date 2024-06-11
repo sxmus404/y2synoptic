@@ -1,17 +1,14 @@
 var currentLanguage = "en"
-document.addEventListener('DOMContentLoaded', () => {
-    const checkbox = document.getElementById("dark")
-    checkbox.addEventListener("change", (event) => {
-        if (event.target.checked) {
-            translate("km")
-        } else {
-            translate("en")
-        }
-    })
-});
+
+function toggleTranslate() {
+    if (currentLanguage === "en") {
+        translate("km")
+    } else {
+        translate("en")
+    }
+}
 
 function translate(language) {
-    console.log("why are we getting")
     const texts = document.querySelectorAll('.translate');
     if (currentLanguage == "en") {
         if (language == "km") {

@@ -59,9 +59,9 @@ function showPosition() {
 				let weatherlist = data['list'];
 				idValue = cityData['id'];
 				console.log(idValue);
-				currentWeather = weatherlist[0].weather[0].main //This is the current weather stored in a variable, doing .description instead of .main gives you a little more info if you want that
-				console.log("This is the current weather: " + currentWeather)
-				setupWeatherWidget()
+				currentWeather = weatherlist[0].weather[0].main; //This is the current weather stored in a variable, doing .description instead of .main gives you a little more info if you want that
+				console.log("This is the current weather: " + currentWeather);
+				setupWeatherWidget();
 			})
 	
 		.catch(err => alert(err));
