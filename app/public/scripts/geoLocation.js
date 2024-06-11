@@ -11,7 +11,7 @@ function showPosition() {
       	navigator.geolocation.getCurrentPosition( function(position) {
 			lat_ = position.coords.latitude;
 			lon_ = position.coords.longitude;
-			var positionInfo = "Your current position is (" + "Latitude: " + lat_ + ", " + "Longitude: " + lon_ + ")";
+			var positionInfo = "<p> Lat: " + lat_ + "</p> <p> Lon: " + lon_ + "</p>";
 			document.getElementById("map-result").innerHTML = positionInfo;
 			var map = L.map('map-main').setView([position.coords.latitude, position.coords.longitude], 19);
 			L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
