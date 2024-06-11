@@ -279,6 +279,7 @@ a {
     width: inherit;
     display: flex;
     flex-direction: row;
+    gap: 1vw;
 }
 
 #map-main {
@@ -289,6 +290,17 @@ a {
 }
 
 #map-button {
+    margin-left: auto;
+    padding: 1vh 1vw;
+    border: 2px solid var(--dark);
+    background-color: var(--light);
+    cursor: pointer;
+    min-width: 14vw;
+    height: 4vh;
+    margin-top: auto;
+}
+
+#translate-button {
     margin-left: auto;
     padding: 1vh 1vw;
     border: 2px solid var(--dark);
@@ -347,13 +359,17 @@ a {
       background-color: #CABCB0;
     }
     .toggle_input:checked ~ .toggle_fill::after {
-      
       transform: translateX(20px);
     }
     
   }
 
 #map-button:hover { 
+    background-color: var(--accent);
+    color: var(--dark);
+}
+
+#translate-button:hover { 
     background-color: var(--accent);
     color: var(--dark);
 }
