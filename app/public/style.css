@@ -151,7 +151,24 @@ a {
     color: var(--dark);
     width: 100vw;
     height: 80vh;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flex-body-farming > * {
+    margin: 1vh 1vw;
+}
+
+.farming-infobox {
+    float: left;
+    text-align: left;
+    font-size: 16px;
+    padding: 1vh 1vw;
+    border: 2px solid var(--dark);
+    max-width: 48vw;
+    text-wrap: wrap;
+    height: auto;
 }
 
 .flex-body-about {
