@@ -14,6 +14,17 @@ const dateCurr = document.getElementById("calendar-nav-curr");
 const iconPrev = document.getElementById("calendar-nav-prev");
 const iconNext = document.getElementById("calendar-nav-next");
 
+// var harvests = [];
+
+// fetch('/query/getHarvestDays', {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json'
+//     }
+// }).then(response => response.json()).then(data => {
+//     // ADD THE DATES IN DATA TO THE HARVEST ARRAY
+// }).catch(error => { console.error("Error: ", error) });
+
 function manipulateCalendar() {
     let firstDay = new Date(cal.year, cal.month, 1).getDay();
     let lastDate = new Date(cal.year, cal.month + 1, 0).getDate();
@@ -26,6 +37,7 @@ function manipulateCalendar() {
         lit += `<li class="calendar-days-unfocus"> ${(lastDayPrev - i) + 1} </li>`;
     }
 
+    // ADD CHECK FOR THE HARVEST ARRAY TO THIS SECTION AND IF SO, ADD A DIFF CLASS
     for (let i = 1; i <= lastDate; i++) {
         if (i === cal.date.getDate() && cal.month === new Date().getMonth() && cal.year === new Date().getFullYear()) {
             lit += `<li><span class="calendar-days-active"> ${i} </span></li>`;
@@ -72,8 +84,21 @@ iconNext.addEventListener("click", ()=> {
 
 day.addEventListener("click", function(e) {
     if (e.target) {
+        let tempDate = new Date(cal.year, cal.month, e.target.innerText);
         
-        alert(new Date(cal.year, cal.month, e.target.innerText));
+        e.preventDefault();
+        fetch('/query/getDate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({date: tempDate.toISOString().split('T')[0]})
+        }).then(response => response.json()).then(data => {
+            if (data === null) { console.log("NO DATA"); return; }
+            else { console.log(data); return; }
+        }).catch(error => {
+            console.error("Error: ", error)
+        });
     }
 });
 
