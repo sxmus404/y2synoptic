@@ -117,16 +117,34 @@ a {
     padding: 1vh 1vw 1vh 1vw;
 }
 
-#container-openweathermap-widget-15 > * {
+#container-openweathermap-widget-11 > * {
+    width: auto;
+    height: auto;
+    border-radius: 0;
     box-shadow: none;
-    width: 28vw;
-    border-radius: none;
-    border: 2px solid var(--dark);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: var(--light);
 }
 
-.widget-right__title { margin-right: auto; padding-left: 1vw; color: var(--dark); }
-.weather-right__temperature { margin-right: auto; padding-left: 1vw; color: var(--dark); }
-.weather-right__weather { margin-left: auto; padding-right: 1vw; color: var(--dark); }
+#container-openweathermap-widget-11 > script {
+    visibility: hidden;
+}
+
+.widget-left-menu {
+    visibility: hidden;
+    max-width: 0%;
+}
+
+.widget-left-menu > * {
+    max-width: 0%;
+}
+
+.widget-left__body {
+    height: auto;
+}
 
 .flex-body-crops {
     background-color: var(--light);
@@ -190,14 +208,12 @@ a {
 }
 
 .weather-widget {
-    max-width: 28vw;
+    height: 10vh;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 10vh;
     padding-top: 1vh;
-    box-shadow: none;
-}
-
-#openweathermap-widget-15 {
+    overflow-y: hidden;
     box-shadow: none;
 }
 
@@ -262,17 +278,19 @@ a {
 #map-main {
     margin-top: 1vh;
     margin-bottom: 2vh;
-    height: 68vh;
+    height: 48vh;
     border: 2px solid var(--dark);
 }
 
 #map-button {
-    float: left;
-    padding: 0.5vh 0.5vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1vh;
+    padding: 1vh 1vw;
     border: 2px solid var(--dark);
     background-color: var(--light);
     cursor: pointer;
-    width: 8vw;
+    width: 28vw;
 }
 
 .toggle_group {
