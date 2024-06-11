@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const bodyParser = require("body-parser");
 const { Client } = require("pg");
 const googleTranslate = require('@vitalets/google-translate-api');
 
@@ -8,6 +9,7 @@ const port = 3000;
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname + '/public')));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Create a client for connecting to the database
 const client = new Client({
