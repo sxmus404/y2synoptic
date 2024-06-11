@@ -43,7 +43,7 @@ function showPosition() {
 			var currentLocation = L.marker([lat_, lon_]).addTo(map).bindPopup("You Are Here").openPopup();
 
 			for (let i = 0; i < fieldLat.length; i++) {
-				L.marker([fieldLat[i],fieldLon[i]]).addTo(map).bindPopup((i + 1).toString())
+				L.marker([fieldLat[i],fieldLon[i]]).addTo(map).bindPopup("Field Number: " + (i + 1).toString())
 			  }
 
 			map.on('click', onMapClick);
