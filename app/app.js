@@ -9,7 +9,6 @@ const port = 3000;
 app.use(express.json());
 app.use(express.static(path.join(__dirname + '/public')));
 
-
 // Default route to home page
 app.get('/', function(req, res) {
   	res.sendFile('public/home.html', {root: __dirname}, (err) => {
@@ -72,4 +71,3 @@ client.connect(function(err) {
 //   console.log(result.rows[1].cropid);                         //important you do result.rows and not just result so that it doesnt print all table info
 //                                                               //to get specific value do "." and then whatever its called in the table(as shown)
 // });
-console.log(new Date());
