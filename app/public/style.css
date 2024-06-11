@@ -275,6 +275,12 @@ a {
     cursor: pointer;
 }
 
+.map-top {
+    width: inherit;
+    display: flex;
+    flex-direction: row;
+}
+
 #map-main {
     margin-top: 1vh;
     margin-bottom: 2vh;
@@ -284,13 +290,13 @@ a {
 
 #map-button {
     margin-left: auto;
-    margin-right: auto;
-    margin-top: 1vh;
     padding: 1vh 1vw;
     border: 2px solid var(--dark);
     background-color: var(--light);
     cursor: pointer;
-    width: 28vw;
+    min-width: 14vw;
+    height: 4vh;
+    margin-top: auto;
 }
 
 .toggle_group {
