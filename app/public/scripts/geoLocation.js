@@ -8,6 +8,11 @@ var group;
 var fields;
 let idValue;
 let currentWeather;
+const col1 = document.getElementById("col1");
+const col2 = document.getElementById("col2");
+const col3 = document.getElementById("col3");
+const col4 = document.getElementById("col4");
+
 
 fields = [
 	{lat: 12.5898727551881, lng: 106.92497569790845, fieldNum: 1},
@@ -82,19 +87,58 @@ function showPosition() {
 				
 			createMarkers();
 
-			console.log(lat_ + "//" + lon_);
+			var group = L.featureGroup(points);
+			group.addTo(map);
+				
+			group.on("click", function (e) {
+				//console.log(e.sourceTarget.options.fieldNum);
+				fetch('/query/getInfo', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({fieldNum: e.sourceTarget.options.fieldNum})
+				})
+				.then(response => response.json())
+				.then(data => {
+					//console.log(data);
+					if(data!=""){
+						var temp = data['0'];
+						var id = temp['fieldid'];
+						var type = temp['croptype'];
+						var harvestDate = temp['estharvest'];
+						var owner = temp['fieldowner'];
+						//console.log(id);
+						col1.innerHTML = id;
+						col2.innerHTML = type;
+						col3.innerHTML = harvestDate;
+						col4.innerHTML = owner;						
+					}
+					else{					
+						col1.innerHTML = "null";
+						col2.innerHTML = "null";
+						col3.innerHTML = "null";
+						col4.innerHTML = "null";		
+					}
+				}).catch(err => {
+					console.error("Error: ", err)
+				});
+			});
+
+			//console.log(lat_ + "//" + lon_);
 			
 			// Weather
 			fetch('https://api.openweathermap.org/data/2.5/forecast?lat='+lat_+'&lon='+lon_+'&appid=93b803fddcaf9fac244d7f72437b87f7') //API KEY ERROR, WILL WAIT AS MIGHT BE USING TO OFTEN
 			.then(response => response.json())
 			.then(data => { 
-				console.log(data);
+				//console.log(data);
 				var cityData = data['city'];
 				let weatherlist = data['list'];
 				idValue = cityData['id'];
-				console.log(idValue);
+				//console.log(idValue);
 				currentWeather = weatherlist[0].weather[0].main; //This is the current weather stored in a variable, doing .description instead of .main gives you a little more info if you want that
 				console.log("This is the current weather: " + currentWeather);
+				// notifyWeather();
 				setupWeatherWidget();
 			})
 			
@@ -106,8 +150,24 @@ function showPosition() {
 
 }
 function onMarkerClick(e){
-	console.log(e.i);
+	//console.log(e.i);
+	fetch('/query/getInfo', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({fieldNum: e.toISOString()})
+	})
+	.then(response => response.json())
+	.then(data => {
+		//console.log(data);
+
+
+	}).catch(err => {
+		console.error("Error: ", err)
+	});
 }
+
 function onMapClick(e) {
 	console.log(e.latlng)
 	popup = L.popup();
@@ -146,3 +206,24 @@ function onMapClick(e) {
 
 
 }
+
+function notifyWeather() {
+	var phoneNumber = +447549057216;
+	var apikey =  "8a8ab1595cce3611ea693ee2130868b23d4d85179lLFmzAiwSaurb66tA1N6pKYE";
+	var messagetotext = "The current weather is: " + currentWeather  
+	fetch('https://textbelt.com/text', {
+		method: 'post',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify({
+		  phone: phoneNumber,
+		  message: messagetotext,
+		  key: apikey,
+		}),
+	  }).then(response => {
+		return response.json();
+	  }).then(data => {
+		console.log(data);
+	  });
+	
+}
+

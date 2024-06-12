@@ -2,14 +2,6 @@
 //     cropType: "",
 //     avgGrowthTime: "",
 //     irrCycle: ""
-
-// };
-
-// const addField = {
-//     fieldNum: "",
-//     cropType: "",
-//     datePlanted: "",
-//     fieldOwner: ""
 // };
 
 // // Add a new crop
@@ -41,8 +33,6 @@
 //     console.error("Error: ", error)
 // });
 
-
-
 // // Gets all the information on all fields
 // fetch('/query/getFields', {
 //     method: 'POST'
@@ -55,25 +45,24 @@
 var fieldForm = document.getElementById("field-form");
 
 fieldForm.addEventListener("click", function(e) {
-    // Access all the form content here
+    var formFieldNum = document.getElementById("field-number");
+    var formCropType = document.getElementById("crop-type");
+    var formDatePlanted = document.getElementById("date-planted");
+    var formFieldOwner = document.getElementById("field-owner");
 
     e.preventDefault();
     const addField = {
-        fieldNum: "",
-        cropType: "",
-        datePlanted: "",
-        fieldOwner: ""
+        fieldNum: formFieldNum.value,
+        cropType: formCropType.value,
+        datePlanted: formDatePlanted.value,
+        fieldOwner: formFieldOwner.value
     };
-
+    
     fetch('/query/addField', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(addField)
-    }).then(response => response.json()).then(data => {
-       // WHAT TO DO WITH THE DATA RETURNED HERE
-
-       console.log("cummy")
-    });
+    }).then(response => response.json());
 });
