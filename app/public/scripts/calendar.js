@@ -18,13 +18,12 @@ var harvests = [];
 
 fetch('/query/getHarvestDays')
 .then(response => {
-    if (!response.ok) {
-        return response.text().then(text => { throw new Error(text) });
-    }
+    if (!response.ok) { return response.text().then(text => { throw new Error(text) }); }
     return response.json();
 })
 .then(data => {
-    console.log(data);
+    harvests = data;
+    console.log(harvests);
 }).catch(err => { console.error("Error: ", err) });
 
 function manipulateCalendar() {
