@@ -32,6 +32,7 @@
             </div>
 
             <div class="flex-body-map">
+                
                 <div class="map-top"> 
                     <div class="weather-widget" id="openweathermap-widget-11"> </div>
                     <button id="translate-button" type="button" onclick="toggleTranslate()"> English/Khmer </button>
@@ -44,21 +45,23 @@
 
             <div class="flex-body-side"> 
 
-                <form id="field-form" >
-                    <label for="field-number">Field Number</label>
+                <form id="field-form">
+                    <label for="field-number"> Field Number </label>
                     <input type="text" id="field-number" name="field-number"> <br>
-                    <label for="crop-type">Crop</label>
+
+                    <label for="crop-type"> Crop </label>
                     <select type="text" id="crop-type" name="crop-type">
-                        <option></option>
-                    </select><br>
-                    <label for="date-planted">Date Planted</label>
-                    <input type="date" id="date-planted" name="date-planted"><br>
-                    <label for="field-owner">Field Owner</label>
-                    <input type="text" id="field-owner" name="field-owner"><br>
-                    <input type="submit" id="map-button" value="Add">
+                        <option> </option>
+                    </select> <br>
+
+                    <label for="date-planted"> Date Planted </label>
+                    <input type="date" id="date-planted" name="date-planted"> <br>
+
+                    <label for="field-owner"> Field Owner </label>
+                    <input type="text" id="field-owner" name="field-owner"> <br>
+
+                    <input type="submit" id="field-button" value="Add">
                 </form>
-               
-                <a href="/query/getCrop" method="POST"> CLICK </a>
 
             </div>
             
