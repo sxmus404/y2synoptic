@@ -1,5 +1,4 @@
 const { Client } = require('pg');
-
 const client = new Client({
 
     user: 'postgres',
@@ -61,44 +60,58 @@ function createField(fieldNum,cropType,datePlanted,fieldOwner){
 
     });
 
+const addCrop = {
+    cropType: "",
+    avgGrowthTime: "",
+    irrCycle: ""
+
 };
 
-function addCropInfo(cropType,avgGrowthTime,irrCycle){
-    
-    client.query("INSERT INTO crop_info (",cropType,", ",avgGrowthTime,", ",irrCycle,")VALUES (",cropType,", ",avgGrowthTime,", ",irrCycle,")", function(err,result){
+const addField = {
+    fieldNum: "",
+    cropType: "",
+    datePlanted: "",
+    fieldOwner: ""
+};
 
-        if(err) throw err;
-
+// Add a new crop
+fetch('/query/addCrop', {
+    method: 'POST',
+    body: JSON.stringify(addCrop)
+}).then(response => response.json()).then(data => {
+   // WHAT TO DO WITH THE DATA RETURNED HERE
+}).catch(error => {
+    console.error("Error: ", error)
 });
 
-}
-
-function getDateInfo(date){
-
-    client.query("Select estHarvest From field_info WHERE estHarvest = ",date,"", function(err,result){
-
-        if(err) throw err;
-        return result;
+// Add a new field
+fetch('/query/addField', {
+    method: 'POST',
+    body: JSON.stringify(addField)
+}).then(response => response.json()).then(data => {
+   // WHAT TO DO WITH THE DATA RETURNED HERE
+}).catch(error => {
+    console.error("Error: ", error)
 });
 
-}
-
-function getAllFieldInfo(){
-    condition = false;
-    array = [];
-    for(x = 0;condition = false;x++){
-    client.query("Select estHarvest From field_info WHERE fieldnum = ",x,"", function(err,result){
-
-        if(err) throw err;
-        if(result == NULL){
-            condition == true;
-        }
-        else{
-            array.push(result);
-        }
-        num++;
+// Gets all the information on all crops
+fetch('/query/getCrop', {
+    method: 'POST'
+}).then(response => response.json()).then(data => {
+   // WHAT TO DO WITH THE DATA RETURNED HERE
+}).catch(error => {
+    console.error("Error: ", error)
 });
 }
 return array;
 
 }
+
+// Gets all the information on all fields
+fetch('/query/getFields', {
+    method: 'POST'
+}).then(response => response.json()).then(data => {
+   // WHAT TO DO WITH THE DATA RETURNED HERE
+}).catch(error => {
+    console.error("Error: ", error)
+});

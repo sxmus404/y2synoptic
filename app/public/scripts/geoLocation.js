@@ -26,8 +26,8 @@ function showPosition() {
 			// Pu Ngaol
 			lat_ = 12.58973689927903;
 			lon_ = 106.925101118714666;
-			var positionInfo = "Your current position is (" + "Latitude: " + lat_ + ", " + "Longitude: " + lon_ + ")";
-			map = L.map('map-main').setView([lat_, lon_], 19);
+
+			map = L.map('map-main').setView([position.coords.latitude, position.coords.longitude], 19);
 			L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 20,
 				minZoom:18,
