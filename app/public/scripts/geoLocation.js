@@ -91,6 +91,7 @@ function showPosition() {
 				console.log(idValue);
 				currentWeather = weatherlist[0].weather[0].main; //This is the current weather stored in a variable, doing .description instead of .main gives you a little more info if you want that
 				console.log("This is the current weather: " + currentWeather);
+				// notifyWeather();
 				setupWeatherWidget();
 			})
 			
@@ -105,9 +106,31 @@ function onMarkerClick(e){
 	console.log(e.i);
 }
 function onMapClick(e) {
+	console.log(e.latlng)
 	popup = L.popup();
     popup
         .setLatLng(e.latlng)
         .setContent("Would you like to add a field?")
         .openOn(map);
 }
+
+function notifyWeather() {
+	var phoneNumber = +447549057216;
+	var apikey =  "8a8ab1595cce3611ea693ee2130868b23d4d85179lLFmzAiwSaurb66tA1N6pKYE";
+	var messagetotext = "The current weather is: " + currentWeather  
+	fetch('https://textbelt.com/text', {
+		method: 'post',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify({
+		  phone: phoneNumber,
+		  message: messagetotext,
+		  key: apikey,
+		}),
+	  }).then(response => {
+		return response.json();
+	  }).then(data => {
+		console.log(data);
+	  });
+	
+}
+
