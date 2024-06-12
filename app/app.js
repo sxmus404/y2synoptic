@@ -82,9 +82,14 @@ app.post('/query/getDate', async(req, res) => {
 });
 
 app.post('/query/addField', async(req, res) => {
+	if (req.body.fieldNum === null) { console.log("Not enough info provided"); return; }
+	if (req.body.cropType === null) { console.log("Not enough info provided"); return; }
+	if (req.body.datePlanted === null) { console.log("Not enough info provided"); return; }
+	if (req.body.fieldOwner === null) { console.log("Not enough info provided"); return; }
+
 	var numCheckQuery = ("SELECT fieldnum FROM field_info");
 	const fieldNums = await client.query(numCheckQuery);
-
+	
 	let taken = false;
 	for (i = 0; i < fieldNums.rows.length; i++) {
 		if (fieldNums.rows[i].fieldnum === parseInt(req.body.fieldNum)) { taken = true; console.log("FIELD NUM TAKEN"); break; }
