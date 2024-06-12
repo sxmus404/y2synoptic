@@ -47,18 +47,22 @@
                 <div class="side-form">
                     <form id="field-form" >
                         <label for="field-number"> Field Number </label>
-                        <input type="text" id="field-number" name="field-number"> <br>
+                        <input type="text" id="field-number" name="field-number" required> <br>
 
                         <label for="crop-type"> Crop </label>
-                        <select type="text" id="crop-type" name="crop-type">
-                            <option> </option>
+                        <select type="text" id="crop-type" name="crop-type" required>
+                            <option value="Potato"> Potato </option>
+                            <option value="Rice"> Rice </option>
+                            <option value="Cabbage"> Cabbage </option>
+                            <option value="Cucumber"> Cucumber </option>
+                            <option value="Bok-Choy"> Bok-Choy </option>
                         </select> <br>
 
                         <label for="date-planted"> Date Planted </label>
-                        <input type="date" id="date-planted" name="date-planted"> <br>
+                        <input type="date" id="date-planted" name="date-planted" required> <br>
 
                         <label for="field-owner"> Field Owner </label>
-                        <input type="text" id="field-owner" name="field-owner"> <br>
+                        <input type="text" id="field-owner" name="field-owner" required> <br>
 
                         <input type="submit" id="field-button" value="Add">
                     </form>
