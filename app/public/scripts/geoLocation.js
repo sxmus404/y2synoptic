@@ -5,6 +5,11 @@ var lon_;
 var popup;
 let idValue;
 let currentWeather;
+const col1 = document.getElementById("col1");
+const col2 = document.getElementById("col2");
+const col3 = document.getElementById("col3");
+const col4 = document.getElementById("col4");
+
 
 document.addEventListener("DOMContentLoaded", (event) => {
 	showPosition();
@@ -76,6 +81,37 @@ function showPosition() {
 				
 			group.on("click", function (e) {
 				console.log(e.sourceTarget.options.fieldNum);
+				fetch('/query/getInfo', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({fieldNum: e.sourceTarget.options.fieldNum})
+				})
+				.then(response => response.json())
+				.then(data => {
+					console.log(data);
+					if(data!=""){
+						var temp = data['0'];
+						var id = temp['fieldid'];
+						var type = temp['croptype'];
+						var harvestDate = temp['estharvest'];
+						var owner = temp['fieldowner'];
+						console.log(id);
+						col1.innerHTML = id;
+						col2.innerHTML = type;
+						col3.innerHTML = harvestDate;
+						col4.innerHTML = owner;						
+					}
+					else{					
+						col1.innerHTML = "null";
+						col2.innerHTML = "null";
+						col3.innerHTML = "null";
+						col4.innerHTML = "null";		
+					}
+				}).catch(err => {
+					console.error("Error: ", err)
+				});
 			});
 
 			console.log(lat_ + "//" + lon_);
@@ -102,8 +138,24 @@ function showPosition() {
 
 }
 function onMarkerClick(e){
-	console.log(e.i);
+	//console.log(e.i);
+	fetch('/query/getInfo', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({fieldNum: e.toISOString()})
+	})
+	.then(response => response.json())
+	.then(data => {
+		console.log(data);
+
+
+	}).catch(err => {
+		console.error("Error: ", err)
+	});
 }
+
 function onMapClick(e) {
 	popup = L.popup();
     popup
