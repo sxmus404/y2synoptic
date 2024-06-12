@@ -80,7 +80,7 @@ function showPosition() {
 			group.addTo(map);
 				
 			group.on("click", function (e) {
-				console.log(e.sourceTarget.options.fieldNum);
+				//console.log(e.sourceTarget.options.fieldNum);
 				fetch('/query/getInfo', {
 					method: 'POST',
 					headers: {
@@ -90,14 +90,14 @@ function showPosition() {
 				})
 				.then(response => response.json())
 				.then(data => {
-					console.log(data);
+					//console.log(data);
 					if(data!=""){
 						var temp = data['0'];
 						var id = temp['fieldid'];
 						var type = temp['croptype'];
 						var harvestDate = temp['estharvest'];
 						var owner = temp['fieldowner'];
-						console.log(id);
+						//console.log(id);
 						col1.innerHTML = id;
 						col2.innerHTML = type;
 						col3.innerHTML = harvestDate;
@@ -114,17 +114,17 @@ function showPosition() {
 				});
 			});
 
-			console.log(lat_ + "//" + lon_);
+			//console.log(lat_ + "//" + lon_);
 			
 			// Weather
 			fetch('https://api.openweathermap.org/data/2.5/forecast?lat='+lat_+'&lon='+lon_+'&appid=93b803fddcaf9fac244d7f72437b87f7') //API KEY ERROR, WILL WAIT AS MIGHT BE USING TO OFTEN
 			.then(response => response.json())
 			.then(data => { 
-				console.log(data);
+				//console.log(data);
 				var cityData = data['city'];
 				let weatherlist = data['list'];
 				idValue = cityData['id'];
-				console.log(idValue);
+				//console.log(idValue);
 				currentWeather = weatherlist[0].weather[0].main; //This is the current weather stored in a variable, doing .description instead of .main gives you a little more info if you want that
 				console.log("This is the current weather: " + currentWeather);
 				setupWeatherWidget();
@@ -148,7 +148,7 @@ function onMarkerClick(e){
 	})
 	.then(response => response.json())
 	.then(data => {
-		console.log(data);
+		//console.log(data);
 
 
 	}).catch(err => {
