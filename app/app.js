@@ -24,9 +24,9 @@ app.get('/calendar', function(req, res) {
  	});
 });
 
-// Route to crops page
-app.get('/crops', function(req, res) {
-	res.sendFile('public/crops.html', {root: __dirname}, (err) => {
+// Route to farming page
+app.get('/farming', function(req, res) {
+	res.sendFile('public/farming.html', {root: __dirname}, (err) => {
 		if (err) {console.log(err);}
    });
 });
@@ -43,29 +43,22 @@ app.listen(port, ()=> {
   	console.log('http://localhost:3000/');
 });
 
-
-app.post('/translate', async (req, res) => {
+app.post('/translate', async(req, res) => {
 	const {text, language} = req.body;
 	try {
-		const result = await googleTranslate.translate(text, {to:language});
-		res.json({ translation: result.text });
+		const result = await googleTranslate.translate(text, {to: language});
+		res.json({translation: result.text});
 	} catch (error) {
 		console.error("Translation error: ", error.message);
-		res.status(500).json({error:error.message});
+		res.status(500).json({error: error.message});
 	}
 });
-
-// async function waiting() {
-// 	const result = await googleTranslate.translate('Hello, how are you?', { to: 'km' });
-// 	console.log(result.text) // => 'Hello World! How are you?'
-// }
-// waiting()
 
 const client = new Client({
 	user: 'postgres',
 	host: '81.99.224.111',
 	database: 'postgres', //Connect to Sam's server
-	password: 'zackisgay',
+	password: 'securepassword',
 	port: 5432,
 })
 
@@ -79,3 +72,4 @@ client.connect(function(err) {
 //   console.log(result.rows[1].cropid);                         //important you do result.rows and not just result so that it doesnt print all table info
 //                                                               //to get specific value do "." and then whatever its called in the table(as shown)
 // });
+console.log(new Date());

@@ -23,30 +23,26 @@
             <div class="flex-header">
                 <div class="header-title"> <a href="/"> <img src="images/logo-title-img.png" id="header-title-img"> </a> </div>
                 <div class="header-nav"> 
-                    <!-- <div class="toggle_group">
-                        <label for="dark" id="toggle_label"> Khmer </label>
-                        <label for="dark" class="toggle">
-                            <input class="toggle_input" type="checkbox" id="dark" name="dark_mode">
-                            <div class="toggle_fill"></div>
-                        </label>
-                    </div> -->
-                    <!-- <button id="map-button" class="translate" type="button"> translate</button> -->
                     <a href="/" class="header-nav-active"> <i class="fa-solid fa-house"> </i> </a>
                     <a href="/calendar" class="translate"> CALENDAR </a>
-                    <a href="/crops" class="translate"> CROPS </a>
+                    <a href="/farming" class="translate"> FARMING </a>
                     <a href="/about" class="translate"> ABOUT </a> 
                 </div>
             </div>
 
             <div class="flex-body-map">
+                <div class="map-top"> 
+                    <div class="weather-widget" id="openweathermap-widget-11"> </div>
+                    <button id="translate-button" type="button" onclick="toggleTranslate()"> English/Khmer </button>
+                    <button id="map-button" type="button" onclick="showPosition()"> Show Position </button>
+                </div>
                 <div id="map-main"> </div> 
                 <button id="map-button" type="button" onclick="centerMap()"> Reset Map </button>
                 <div id="map-result"> </div>
+
             </div>
 
-            <div class="flex-body-side">
-                <div class="weather-widget" id="openweathermap-widget-15"> </div>
-            </div>
+            <div class="flex-body-side"> </div>
             
             <div class="flex-body-footer"> 
                 <p> Synoptic Project 2024 | Group 54 </p>

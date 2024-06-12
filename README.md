@@ -26,6 +26,4 @@ node app.js
 - Lastly, navigate [here](http://localhost:3000/)
 
 ## Important Cat Images
-
-<img src=important-cat-images/cat.jpg width="200px" height ="200px">
-<img src=important-cat-images/dexter.jpg width="200px" height ="300px">
+<img src="important-cat-images/dexter.jpg" width="45%"></img> <img src="important-cat-images/cat.jpg" width="45%" height="150%"></img> 

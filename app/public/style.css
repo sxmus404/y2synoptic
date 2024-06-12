@@ -117,23 +117,58 @@ a {
     padding: 1vh 1vw 1vh 1vw;
 }
 
-#container-openweathermap-widget-15 > * {
+#container-openweathermap-widget-11 > * {
+    width: auto;
+    height: auto;
+    border-radius: 0;
     box-shadow: none;
-    width: 28vw;
-    border-radius: none;
-    border: 2px solid var(--dark);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: var(--light);
 }
 
-.widget-right__title { margin-right: auto; padding-left: 1vw; color: var(--dark); }
-.weather-right__temperature { margin-right: auto; padding-left: 1vw; color: var(--dark); }
-.weather-right__weather { margin-left: auto; padding-right: 1vw; color: var(--dark); }
+#container-openweathermap-widget-11 > script {
+    visibility: hidden;
+}
 
-.flex-body-crops {
+.widget-left-menu {
+    visibility: hidden;
+    max-width: 0%;
+}
+
+.widget-left-menu > * {
+    max-width: 0%;
+}
+
+.widget-left__body {
+    height: auto;
+}
+
+.flex-body-farming {
     background-color: var(--light);
     color: var(--dark);
     width: 100vw;
     height: 80vh;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flex-body-farming > * {
+    margin: 1vh 1vw;
+}
+
+.farming-infobox {
+    float: left;
+    text-align: left;
+    font-size: 16px;
+    padding: 1vh 1vw;
+    border: 2px solid var(--dark);
+    max-width: 48vw;
+    text-wrap: wrap;
+    height: auto;
 }
 
 .flex-body-about {
@@ -190,14 +225,12 @@ a {
 }
 
 .weather-widget {
-    max-width: 28vw;
+    height: 10vh;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 10vh;
     padding-top: 1vh;
-    box-shadow: none;
-}
-
-#openweathermap-widget-15 {
+    overflow-y: hidden;
     box-shadow: none;
 }
 
@@ -259,20 +292,40 @@ a {
     cursor: pointer;
 }
 
+.map-top {
+    width: inherit;
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+}
+
 #map-main {
     margin-top: 1vh;
     margin-bottom: 2vh;
-    height: 68vh;
+    height: 53vh;
     border: 2px solid var(--dark);
 }
 
 #map-button {
-    float: left;
-    padding: 0.5vh 0.5vw;
+    margin-left: auto;
+    padding: 1vh 1vw;
     border: 2px solid var(--dark);
     background-color: var(--light);
     cursor: pointer;
-    width: 8vw;
+    min-width: 14vw;
+    height: 4vh;
+    margin-top: auto;
+}
+
+#translate-button {
+    margin-left: auto;
+    padding: 1vh 1vw;
+    border: 2px solid var(--dark);
+    background-color: var(--light);
+    cursor: pointer;
+    min-width: 14vw;
+    height: 4vh;
+    margin-top: auto;
 }
 
 .toggle_group {
@@ -323,13 +376,17 @@ a {
       background-color: #CABCB0;
     }
     .toggle_input:checked ~ .toggle_fill::after {
-      
       transform: translateX(20px);
     }
     
   }
 
 #map-button:hover { 
+    background-color: var(--accent);
+    color: var(--dark);
+}
+
+#translate-button:hover { 
     background-color: var(--accent);
     color: var(--dark);
 }
