@@ -3,15 +3,15 @@ var currentLanguage = "en"
 function toggleTranslate() {
     if (currentLanguage === "en") {
         translate("km")
+        currentLanguage = "km"
     } else {
         translate("en")
+        currentLanguage = "en"
     }
 }
 
 function translate(language) {
     const texts = document.querySelectorAll('.translate');
-    if (currentLanguage == "en") {
-        if (language == "km") {
             texts.forEach(elementText => {
                 const content = elementText.innerText;
     
@@ -30,6 +30,4 @@ function translate(language) {
                         console.error("Error: ", error)
                     })
             }); 
-        }
-    } 
 }

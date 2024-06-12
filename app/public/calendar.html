@@ -20,16 +20,18 @@
                 <div class="header-title"> <a href="/"> <img src="images/logo-title-img.png" id="header-title-img"> </a> </div>
                 <div class="header-nav"> 
                     <a href="/"> <i class="fa-solid fa-house"> </i> </a>
-                    <a href="/calendar" class="header-nav-active"> CALENDAR </a> 
-                    <a href="/farming"> FARMING </a> 
-                    <a href="/about"> ABOUT </a> </div>
+                    <a href="/calendar" class="header-nav-active translate"> CALENDAR </a> 
+                    <a href="/farming" class="translate"> FARMING </a> 
+                    <a href="/about" class="translate"> ABOUT </a> </div>
             </div>
-
+            <div class="map-top">
+                <button id="translate-button" class="translate" type="button" onclick="toggleTranslate()"> English/Khmer </button>
+            </div>
             <div class="flex-body-calendar">
                 <div class="calendar-content">
                     <div class="calendar-nav">
                         <p id="calendar-nav-prev"> &lt; </p>
-                        <p id="calendar-nav-curr"> </p>
+                        <p class="translate" id="calendar-nav-curr"> </p>
                         <p id="calendar-nav-next"> &gt; </p>
                     </div>
                           
@@ -47,9 +49,9 @@
                 </div>
                 
                 <div class="calendar-side-content">
-                    <p> Day Info </p>
+                    <p class="translate"> Day Info </p>
                     <div id="calendar-day-info"> 
-                        <p> CLICK A DATE TO VIEW ITS INFO </p>
+                        <p class="translate"> CLICK A DATE TO VIEW ITS INFO </p>
                     </div>
                 </div>
             </div>
