@@ -55,12 +55,14 @@
 var fieldForm = document.getElementById("field-form");
 
 fieldForm.addEventListener("click", function(e) {
+    // Access all the form content here
+
     e.preventDefault();
     const addField = {
-        fieldNum: "900",
-        cropType: "Potato",
-        datePlanted: "2004/11/11",
-        fieldOwner: "Zack"
+        fieldNum: "",
+        cropType: "",
+        datePlanted: "",
+        fieldOwner: ""
     };
 
     fetch('/query/addField', {
