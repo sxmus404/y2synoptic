@@ -129,7 +129,9 @@ function showPosition() {
 			var group = L.featureGroup(points);
 			group.addTo(map);
 				
+
 			getFieldInfo(group);
+
 
 			//console.log(lat_ + "//" + lon_);
 			
