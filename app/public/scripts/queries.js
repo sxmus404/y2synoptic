@@ -105,7 +105,7 @@ fetch('/query/getCrop', {
 }
 return array;
 
-}
+
 
 // Gets all the information on all fields
 fetch('/query/getFields', {
@@ -115,3 +115,25 @@ fetch('/query/getFields', {
 }).catch(error => {
     console.error("Error: ", error)
 });
+
+function addFieldTemp(){
+    e.preventDefault();
+    const addField = {
+        fieldNum: "21",
+        cropType: "Potato",
+        datePlanted: "2004/11/11",
+        fieldOwner: "Zack"
+    };
+
+    fetch('/query/addField', {
+        method: 'POST',
+        body: JSON.stringify(addField)
+    }).then(response => response.json()).then(data => {
+       // WHAT TO DO WITH THE DATA RETURNED HERE
+       console.log("cummy")
+    }).catch(error => {
+        console.error("Error: ", error)
+    });
+}
+
+document.getElementById("field-form").addEventListener("submit", addFieldTemp())
