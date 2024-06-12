@@ -82,7 +82,7 @@ app.post('/query/getDate', async(req, res) => {
 });
 
 app.post('/query/getInfo', async(req, res) => {
-	var numCheckQuery = ("SELECT fieldNum FROM field_info WHERE EXISTS (SELECT fieldNum FROM field_info WHERE fieldNum ='" + req.body.fieldNum + ")");
+	var numCheckQuery = ("SELECT fieldNum FROM field_info WHERE EXISTS (SELECT fieldNum FROM field_info WHERE fieldNum = " + req.body.fieldNum + ")");
 	const fieldNums = await client.query(numCheckQuery);
 
 	if(!null){
