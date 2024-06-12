@@ -23,7 +23,7 @@ fetch('/query/getHarvestDays')
 })
 .then(data => {
     harvests = data;
-    console.log(harvests);
+    manipulateCalendar();
 }).catch(err => { console.error("Error: ", err) });
 
 function manipulateCalendar() {
@@ -40,10 +40,23 @@ function manipulateCalendar() {
 
     // ADD CHECK FOR THE HARVEST ARRAY TO THIS SECTION AND IF SO, ADD A DIFF CLASS
     for (let i = 1; i <= lastDate; i++) {
+        console.log(harvests[i].estharvest.split('T')[0]);
+
         if (i === cal.date.getDate() && cal.month === new Date().getMonth() && cal.year === new Date().getFullYear()) {
             lit += `<li><span class="calendar-days-active"> ${i} </span></li>`;
         } else {
-            lit += `<li class="calendar-days-curr"> ${i} </li>`;
+            var found = false;
+            // let checkDate = new Date(cal.year, cal.month, i);
+            // if (harvests[j].estharvest.split('T')[0] === checkDate.toISOString.split('T')[0]) {
+            //     found = true;
+            //     break;
+            // }
+
+            for (let j = 0; j < harvests.length + 1; j++) {
+            }
+
+            if (!found) { lit += `<li class="calendar-days-curr"> ${i} </li>`; } 
+            else { lit += `<li class="calendar-days-harvest"> ${i} </li>`; }
         };
     }
 
@@ -102,5 +115,3 @@ day.addEventListener("click", function(e) {
         });
     }
 });
-
-manipulateCalendar();
