@@ -105,7 +105,7 @@ fetch('/query/getCrop', {
 }
 return array;
 
-}
+
 
 // Gets all the information on all fields
 fetch('/query/getFields', {
