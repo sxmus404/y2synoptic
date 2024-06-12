@@ -404,7 +404,6 @@ a {
     height: 72vh;
     font-size: 32px;
     overflow: hidden;
-    background-color: var(--hidden);
 }
 
 #field-form {
@@ -415,11 +414,13 @@ a {
 .side-form > form > input {
     height: 32px;
     margin-bottom: 2vh;
+    border: 2px solid var(--hidden);
 }
 
 .side-form > form > select {
     height: 32px;
     margin-bottom: 2vh;
+    border: 2px solid var(--hidden);
 }
 
 #field-button {
