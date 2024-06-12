@@ -112,27 +112,37 @@ function onMapClick(e) {
 	console.log(e.latlng)
 	popup = L.popup();
     popup
-        .setLatLng(e.latlng)
-        .setContent("Would you like to add a field?")
-        .openOn(map);
+        .setLatLng(e.latlng);
 	
-		let tempFieldNum;
-	let newFieldNum = prompt("Please a Field Number:", "");
-	if (newFieldNum == null || newFieldNum == "") {
-		tempFieldNum = "User cancelled the prompt.";
+	
+	const pattern = /[0-9]/;
+	let tempFieldNum;
+	let newFieldNum = prompt("Please enter a Field Number:", "");
+	let exists = false;
+	for (i = 0; i < fields.length; i++) {
+		if (fields[i].fieldNum === parseInt(newFieldNum))  { exists = true; console.log("Field Already Exists"); break; }
+	};
+
+	if (exists) {
+		alert("Field Number already exists")
+	} else if (newFieldNum == null) {
+		console.log("Cancelled Creation")
+		return;
+	} else if (pattern.test(newFieldNum) === false) {
+		alert("Input is the wrong format! Make sure you enter a number")
 	} else {
 		tempFieldNum = "Field Number " + newFieldNum + " has been created";
 		const newField = {
 			lat: e.latlng.lat,
 			lng: e.latlng.lng,
 			fieldNum: parseInt(newFieldNum)
-		}
+		};
 		fields.push(newField)
 		group.remove();
 		createMarkers();
 		console.log(tempFieldNum)
 		console.log(fields)
-	}
+	};
 
 
 }
