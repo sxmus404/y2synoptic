@@ -61,14 +61,11 @@ app.post('/translate', async(req, res) => {
 });
 
 app.post('/query/addCrop', async(req, res) => {
-    await client.query("INSERT INTO crop_info (" + req.body.cropType + ", " + req.body.avgGrowthTime + ", " + req.body.irrCycle + ") VALUES (" + req.body.cropType + ", " + req.body.avgGrowthTime + ", " + req.body.irrCycle + ")").then(data => {
-		if (err) { throw err; }
-	});
+    await client.query("INSERT INTO crop_info (" + req.body.cropType + ", " + req.body.avgGrowthTime + ", " + req.body.irrCycle + ") VALUES (" + req.body.cropType + ", " + req.body.avgGrowthTime + ", " + req.body.irrCycle + ")");
 });
 
 app.post('/query/getCrop', async(req, res) => {
     await client.query("SELECT * FROM crop_info").then(data => {
-		if (err) { throw err; }
 		res.send(data);
 	});
 });
@@ -98,10 +95,9 @@ app.get('/query/getHarvestDays', async(req, res) => {
 });
 
 app.post('/query/getDate', async(req, res) => {
-	// var queryString = (`SELECT estHarvest FROM field_info WHERE estHarvest LIKE '`, req.body.date, `%' ;`)
-	console.log("DATE: " + req.body.date);
-    const result = await client.query(("SELECT estHarvest FROM field_info WHERE estHarvest = ", req.body.date)); // NEEDS TO BE CHANGED TO GET THE INFO FROM THE DATE
-	console.log(result.rows);
+	var queryString = ("SELECT * FROM field_info WHERE estHarvest = \'" + req.body.date + "\'")
+    const result = await client.query(queryString);
+	res.send(result.rows);
 });
 
 app.post('/query/addField', async(req, res) => {
