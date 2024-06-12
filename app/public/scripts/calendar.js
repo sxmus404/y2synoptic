@@ -86,8 +86,8 @@ iconNext.addEventListener("click", ()=> {
 
 day.addEventListener("click", function(e) {
     if (e.target) {
-        let tempDate = new Date(cal.year, cal.month, e.target.innerText);
-        
+        let tempDate = new Date(cal.year, cal.month, parseInt(e.target.innerText) + 1);
+
         e.preventDefault();
         fetch('/query/getDate', {
             method: 'POST',
@@ -98,8 +98,8 @@ day.addEventListener("click", function(e) {
         }).then(response => response.json()).then(data => {
             if (data === null) { console.log("NO DATA"); return; }
             else { console.log(data); return; }
-        }).catch(error => {
-            console.error("Error: ", error)
+        }).catch(err => {
+            console.error("Error: ", err)
         });
     }
 });
