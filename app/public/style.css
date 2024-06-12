@@ -401,12 +401,24 @@ a {
     float: left;
 }
 
+.side-lower {
+    border: 2px solid var(--dark);
+    text-align: left;
+    padding: 1vh 1vw;
+    margin: 1vh 0vw;
+    height: 34.75vh;
+    max-height: 34.75vh;
+    font-size: 32px;
+    overflow: hidden;
+}
+
 .side-form {
     border: 2px solid var(--dark);
     text-align: left;
     padding: 1vh 1vw;
     margin: 1vh 0vw;
-    height: 72vh;
+    height: 34vh;
+    max-height: 34vh;
     font-size: 32px;
     overflow: hidden;
 }
@@ -416,15 +428,17 @@ a {
     flex-direction: column;
 }
 
+#field-form > * {
+    margin-top: 0.5vh;
+}
+
 .side-form > form > input {
     height: 32px;
-    margin-bottom: 2vh;
     border: 2px solid var(--hidden);
 }
 
 .side-form > form > select {
     height: 32px;
-    margin-bottom: 2vh;
     border: 2px solid var(--hidden);
 }
 
