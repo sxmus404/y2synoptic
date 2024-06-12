@@ -81,6 +81,20 @@ app.post('/query/getDate', async(req, res) => {
 	res.send(result.rows);
 });
 
+app.post('/query/getInfo', async(req, res) => {
+	var numCheckQuery = ("SELECT fieldNum FROM field_info WHERE EXISTS (SELECT fieldNum FROM field_info WHERE fieldNum = "+ req +")");
+	const fieldNums = await client.query(numCheckQuery);
+
+	if(!null){
+		var queryString = ("SELECT * FROM field_info WHERE fieldNum= \'" + req.body.fieldNum + "\'")
+		const result = await client.query(queryString);
+		res.send(result.rows);
+	}
+
+	
+	
+});
+
 app.post('/query/addField', async(req, res) => {
 	if (req.body.fieldNum === null) { console.log("Not enough info provided"); return; }
 	if (req.body.cropType === null) { console.log("Not enough info provided"); return; }
