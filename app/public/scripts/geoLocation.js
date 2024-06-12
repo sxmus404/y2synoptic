@@ -64,25 +64,47 @@ function getFieldInfo(group) {
 		})
 		.then(response => response.json())
 		.then(data => {
-			//console.log(data);
-			if(data!=""){
+			console.log(data);
 				var temp = data['0'];
-				var id = temp['fieldNum'];
+				var id = temp['fieldnum'];
 				var type = temp['croptype'];
 				var harvestDate = temp['estharvest'];
 				var owner = temp['fieldowner'];
+
+				if(id!=""){
+					col1.innerHTML = id;
+				}
+				else{
+					col1.innerHTML = "unknown fieldID";
+				}
+
+				if(type!=""){
+					col2.innerHTML = type;
+				}
+				else{
+					col2.innerHTML = "unkown crop type";
+				}
+
+				if(harvestDate!=""){
+					col3.innerHTML = harvestDate;;
+				}
+				else{
+					col3.innerHTML = "unkown harvest date";
+				}
+
+				if(owner!=""){
+					col4.innerHTML = owner;	;
+				}
+				else{
+					col4.innerHTML = "unknown owner";
+				}
+
+
 				//console.log(id);
-				col1.innerHTML = id;
-				col2.innerHTML = type;
-				col3.innerHTML = harvestDate;
-				col4.innerHTML = owner;						
-			}
-			else{					
-				col1.innerHTML = "null";
-				col2.innerHTML = "null";
-				col3.innerHTML = "null";
-				col4.innerHTML = "null";		
-			}
+				// col1.innerHTML = id;
+				// col2.innerHTML = type;
+				// col3.innerHTML = harvestDate;
+				// col4.innerHTML = owner;						
 		}).catch(err => {
 			console.error("Error: ", err)
 		});
