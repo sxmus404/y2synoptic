@@ -13,6 +13,7 @@ const day = document.getElementById("calendar-days");
 const dateCurr = document.getElementById("calendar-nav-curr");
 const iconPrev = document.getElementById("calendar-nav-prev");
 const iconNext = document.getElementById("calendar-nav-next");
+const dayInfo = document.getElementById("calendar-day-info");
 
 var harvests = [];
 
@@ -107,8 +108,17 @@ day.addEventListener("click", function(e) {
             },
             body: JSON.stringify({date: tempDate.toISOString().split('T')[0]})
         }).then(response => response.json()).then(data => {
-            if (data === null) { console.log("NO DATA"); return; }
-            else { console.log(data); return; }
+            if (data) {
+                let lit="";
+                if (data.length === 0) {
+                    lit += `<p class="translate"> No crops need to be harvested this day </p>`;
+                } else {
+                    for (let i = 0; i < data.length; i++) {
+                        lit += `<p class="translate"> ${data[i].fieldowner} | Field: ${data[i].fieldnum} | Crop: ${data[i].croptype} </p>`;
+                    }
+                }
+                dayInfo.innerHTML = lit;
+            }
         }).catch(err => {
             console.error("Error: ", err)
         });
