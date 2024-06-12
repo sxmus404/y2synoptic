@@ -67,7 +67,7 @@ function getFieldInfo(group) {
 			//console.log(data);
 			if(data!=""){
 				var temp = data['0'];
-				var id = temp['fieldNum'];
+				var id = temp['fieldnum'];
 				var type = temp['croptype'];
 				var harvestDate = temp['estharvest'];
 				var owner = temp['fieldowner'];
