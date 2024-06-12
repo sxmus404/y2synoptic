@@ -71,27 +71,8 @@ app.post('/query/getCrop', async(req, res) => {
 });
 
 app.get('/query/getHarvestDays', async(req, res) => {
-	try {
-		condition = false;
-		harvestDays = [];
-	
-		for (i = 0; !condition; i++) {
-			const result = await client.query(("Select estHarvest From field_info WHERE fieldnum = ", i, ""));
-			if (result.rows.length = 0) { 
-				condition == true; 
-			} else { 
-				harvestDays.push(result.rows[0]); 
-			}
-		};
-	
-		console.log(harvestDays);
-		res.json(harvestDays);
-	} catch (err) {
-		console.error('Database error:', err);
-		res.status(500).json({ error: 'Internal Server Error' });
-	} finally {
-		client.release();
-	}
+	const result = await client.query(("Select estHarvest From field_info"));
+	res.send(result.rows);
 });
 
 app.post('/query/getDate', async(req, res) => {
