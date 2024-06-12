@@ -22,7 +22,10 @@ fetch('/query/getHarvestDays')
     return response.json();
 })
 .then(data => {
-    harvests = data;
+    // Add all non-null dates to the array and remove redundant data
+    for (let i = 0; i  < data.length; i++) {
+        if (data[i].estharvest != null) { harvests.push(data[i].estharvest.split('T')[0]); }
+    }
     manipulateCalendar();
 }).catch(err => { console.error("Error: ", err) });
 
@@ -38,21 +41,17 @@ function manipulateCalendar() {
         lit += `<li class="calendar-days-unfocus"> ${(lastDayPrev - i) + 1} </li>`;
     }
 
-    // ADD CHECK FOR THE HARVEST ARRAY TO THIS SECTION AND IF SO, ADD A DIFF CLASS
     for (let i = 1; i <= lastDate; i++) {
-        console.log(harvests[i].estharvest.split('T')[0]);
-
         if (i === cal.date.getDate() && cal.month === new Date().getMonth() && cal.year === new Date().getFullYear()) {
             lit += `<li><span class="calendar-days-active"> ${i} </span></li>`;
         } else {
-            var found = false;
-            // let checkDate = new Date(cal.year, cal.month, i);
-            // if (harvests[j].estharvest.split('T')[0] === checkDate.toISOString.split('T')[0]) {
-            //     found = true;
-            //     break;
-            // }
-
-            for (let j = 0; j < harvests.length + 1; j++) {
+            let found = false;
+            let checkDate = new Date(cal.year, cal.month, i);
+            for (let j = 0; j < harvests.length; j++) {
+                if (harvests[j] === checkDate.toISOString().split('T')[0]) {
+                        found = true; 
+                        break;
+                }
             }
 
             if (!found) { lit += `<li class="calendar-days-curr"> ${i} </li>`; } 
