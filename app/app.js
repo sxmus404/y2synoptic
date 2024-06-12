@@ -101,13 +101,25 @@ app.post('/query/getDate', async(req, res) => {
 });
 
 app.post('/query/addField', async(req, res) => {
-	var queryString1 = ("INSERT INTO field_info (fieldNum, cropType, datePlanted, fieldOwner) VALUES (" + req.body.fieldNum + ", \'" + req.body.cropType + "\', \'" + req.body.datePlanted + "\', \'" + req.body.fieldOwner + "\')");
-    var queryString2 = ("UPDATE field_info SET irrcycle = (SELECT irrcycle FROM crop_info WHERE croptype = \'" + req.body.cropType + "\') where fieldnum = " + req.body.fieldNum);
-	var queryString3 = ("UPDATE field_info SET estHarvest = ((SELECT datePlanted FROM field_info WHERE fieldNum = " + req.body.fieldNum + ") + (SELECT avgGrowthTime FROM crop_info WHERE cropType = \'" + req.body.cropType + "\')) WHERE fieldNum = " + req.body.fieldNum);
-	
-	await client.query(queryString1);
-   	await client.query(queryString2);
-    await client.query(queryString3);
+	var numCheckQuery = ("SELECT fieldnum FROM field_info");
+	const fieldNums = await client.query(numCheckQuery);
+
+	let taken = false;
+	for (i = 0; i < fieldNums.rows.length; i++) {
+		if (fieldNums.rows[i].fieldnum === parseInt(req.body.fieldNum)) { taken = true; console.log("FIELD NUM TAKEN"); break; }
+	}
+
+	if (!taken) {
+		var queryString1 = ("INSERT INTO field_info (fieldNum, cropType, datePlanted, fieldOwner) VALUES (" + req.body.fieldNum + ", \'" + req.body.cropType + "\', \'" + req.body.datePlanted + "\', \'" + req.body.fieldOwner + "\')");
+		var queryString2 = ("UPDATE field_info SET irrcycle = (SELECT irrcycle FROM crop_info WHERE croptype = \'" + req.body.cropType + "\') where fieldnum = " + req.body.fieldNum);
+		var queryString3 = ("UPDATE field_info SET estHarvest = ((SELECT datePlanted FROM field_info WHERE fieldNum = " + req.body.fieldNum + ") + (SELECT avgGrowthTime FROM crop_info WHERE cropType = \'" + req.body.cropType + "\')) WHERE fieldNum = " + req.body.fieldNum);
+		
+		await client.query(queryString1);
+		await client.query(queryString2);
+		await client.query(queryString3);
+
+		console.log("FIELD ADDED");
+	}
 });
 
 app.listen(port, ()=> {
