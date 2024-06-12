@@ -35,8 +35,8 @@
                 
                 <div class="map-top"> 
                     <div class="weather-widget" id="openweathermap-widget-11"> </div>
-                    <button id="translate-button" type="button" onclick="toggleTranslate()"> English/Khmer </button>
-                    <button id="map-button" type="button" onclick="centerMap()"> Reset Map </button>
+                    <button id="translate-button" class="translate" type="button" onclick="toggleTranslate()"> English/Khmer </button>
+                    <button id="map-button" class="translate" type="button" onclick="centerMap()"> Reset Map </button>
                 </div>
                 <div id="map-main"> </div> 
                 <div id="map-result"> </div>
@@ -47,25 +47,25 @@
 
                 <div class="side-form">
                     <form id="field-form">
-                        <label for="field-number"> Field Number </label>
+                        <label class="translate" for="field-number"> Field Number </label>
                         <input type="text" id="field-number" name="field-number" required> <br>
 
-                        <label for="crop-type"> Crop </label>
+                        <label class="translate" for="crop-type"> Crop </label>
                         <select type="text" id="crop-type" name="crop-type" required>
-                            <option value="Potato"> Potato </option>
-                            <option value="Rice"> Rice </option>
-                            <option value="Cabbage"> Cabbage </option>
-                            <option value="Cucumber"> Cucumber </option>
-                            <option value="Bok-Choy"> Bok-Choy </option>
+                            <option class="translate" value="Potato"> Potato </option>
+                            <option class="translate" value="Rice"> Rice </option>
+                            <option class="translate" value="Cabbage"> Cabbage </option>
+                            <option class="translate" value="Cucumber"> Cucumber </option>
+                            <option class="translate" value="Bok-Choy"> Bok-Choy </option>
                         </select> <br>
 
-                        <label for="date-planted"> Date Planted </label>
+                        <label class="translate" for="date-planted"> Date Planted </label>
                         <input type="date" id="date-planted" name="date-planted" required> <br>
 
-                        <label for="field-owner"> Field Owner </label>
+                        <label class="translate" for="field-owner"> Field Owner </label>
                         <input type="text" id="field-owner" name="field-owner" required> <br>
 
-                        <input type="submit" id="field-button" value="Add">
+                        <input class="translate" type="submit" id="field-button" value="Add">
                     </form>
                 </div>
 
