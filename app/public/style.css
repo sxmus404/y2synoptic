@@ -395,3 +395,43 @@ a {
     padding-left: 1vw;
     float: left;
 }
+
+.side-form {
+    border: 2px solid var(--dark);
+    text-align: left;
+    padding: 1vh 1vw;
+    margin: 1vh 0vw;
+    height: 72vh;
+    font-size: 32px;
+    overflow: hidden;
+    background-color: var(--hidden);
+}
+
+#field-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.side-form > form > input {
+    height: 32px;
+    margin-bottom: 2vh;
+}
+
+.side-form > form > select {
+    height: 32px;
+    margin-bottom: 2vh;
+}
+
+#field-button {
+    padding: 1vh 1vw;
+    border: 2px solid var(--dark);
+    background-color: var(--light);
+    cursor: pointer;
+    min-width: 14vw;
+    height: 4vh;
+    margin-top: auto;
+}
+
+#field-button:hover { 
+    background-color: var(--accent);
+}
