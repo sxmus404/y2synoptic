@@ -101,9 +101,13 @@ app.post('/query/getDate', async(req, res) => {
 });
 
 app.post('/query/addField', async(req, res) => {
-    await client.query(("INSERT INTO field_info (fieldNum, cropType, datePlanted, fieldOwner) VALUES (", req.body.fieldNum, ", ", req.body.cropType,", ", req.body.datePlanted, ", ", req.body.fieldOwner, ")"));
-   	await client.query(("INSERT INTO crop_info (irrCycle) VALUES (SELECT irrCycle FROM crop_info WHERE cropType = ", req.body.cropType, ")"));
-    await client.query(("UPDATE field_info SET estHarvest = ((SELECT datePlanted FROM field_info WHERE fieldNum = ", req.body.fieldNum, ") + (SELECT avgGrowthTime FROM crop_info WHERE cropType = ", req.body.cropType, ")) WHERE fieldNum = ", req.body.fieldNum));
+	var queryString1 = ("INSERT INTO field_info (fieldNum, cropType, datePlanted, fieldOwner) VALUES (" + req.body.fieldNum + ", \'" + req.body.cropType + "\', \'" + req.body.datePlanted + "\', \'" + req.body.fieldOwner + "\')");
+    var queryString2 = ("INSERT INTO field_info (irrCycle) VALUES (SELECT irrCycle FROM crop_info WHERE cropType = \'" + req.body.cropType + "\')");
+	var queryString3 = ("UPDATE field_info SET estHarvest = ((SELECT datePlanted FROM field_info WHERE fieldNum = " + req.body.fieldNum + ") + (SELECT avgGrowthTime FROM crop_info WHERE cropType = \'" + req.body.cropType + "\')) WHERE fieldNum = " + req.body.fieldNum);
+	
+	await client.query(queryString1);
+   	await client.query(queryString2);
+    await client.query(queryString3);
 });
 
 app.listen(port, ()=> {
