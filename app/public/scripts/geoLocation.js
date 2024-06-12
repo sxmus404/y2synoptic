@@ -49,6 +49,45 @@ function createMarkers() {
 	points = fields.map(function (datum) {
 		return L.circleMarker(datum, {radius: 15, fieldNum: datum.fieldNum}).bindPopup("Field Number: " + datum.fieldNum);
 	});
+	group = L.featureGroup(points);
+	group.addTo(map);
+}
+function getFieldInfo(group) {
+	group.on("click", function (e) {
+		//console.log(e.sourceTarget.options.fieldNum);
+		fetch('/query/getInfo', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({fieldNum: e.sourceTarget.options.fieldNum})
+		})
+		.then(response => response.json())
+		.then(data => {
+			//console.log(data);
+			if(data!=""){
+				var temp = data['0'];
+				var id = temp['fieldid'];
+				var type = temp['croptype'];
+				var harvestDate = temp['estharvest'];
+				var owner = temp['fieldowner'];
+				//console.log(id);
+				col1.innerHTML = id;
+				col2.innerHTML = type;
+				col3.innerHTML = harvestDate;
+				col4.innerHTML = owner;						
+			}
+			else{					
+				col1.innerHTML = "null";
+				col2.innerHTML = "null";
+				col3.innerHTML = "null";
+				col4.innerHTML = "null";		
+			}
+		}).catch(err => {
+			console.error("Error: ", err)
+		});
+	});
+
 		
 	group = L.featureGroup(points);
 	group.addTo(map);
@@ -90,40 +129,9 @@ function showPosition() {
 			var group = L.featureGroup(points);
 			group.addTo(map);
 				
-			group.on("click", function (e) {
-				//console.log(e.sourceTarget.options.fieldNum);
-				fetch('/query/getInfo', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({fieldNum: e.sourceTarget.options.fieldNum})
-				})
-				.then(response => response.json())
-				.then(data => {
-					//console.log(data);
-					if(data!=""){
-						var temp = data['0'];
-						var id = temp['fieldid'];
-						var type = temp['croptype'];
-						var harvestDate = temp['estharvest'].split('T')[0];
-						var owner = temp['fieldowner'];
-						//console.log(id);
-						col1.innerHTML = id;
-						col2.innerHTML = type;
-						col3.innerHTML = harvestDate;
-						col4.innerHTML = owner;						
-					}
-					else{					
-						col1.innerHTML = "null";
-						col2.innerHTML = "null";
-						col3.innerHTML = "null";
-						col4.innerHTML = "null";		
-					}
-				}).catch(err => {
-					console.error("Error: ", err)
-				});
-			});
+
+			getFieldInfo(group);
+
 
 			//console.log(lat_ + "//" + lon_);
 			
@@ -200,6 +208,7 @@ function onMapClick(e) {
 		fields.push(newField)
 		group.remove();
 		createMarkers();
+		getFieldInfo(group);
 		console.log(tempFieldNum)
 		console.log(fields)
 	};
