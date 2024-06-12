@@ -54,7 +54,7 @@
 
 var fieldForm = document.getElementById("field-form");
 
-fieldForm.addEventListener("click", function() {
+fieldForm.addEventListener("click", function(e) {
     e.preventDefault();
     const addField = {
         fieldNum: "21",
