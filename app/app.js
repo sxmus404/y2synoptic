@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-const { Client } = require("pg");
+const { Client, Pool } = require("pg");
 const googleTranslate = require('@vitalets/google-translate-api');
 
 const app = express();
@@ -73,23 +73,34 @@ app.post('/query/getCrop', async(req, res) => {
 	});
 });
 
-app.post('/query/getHarvestDays', async(req, res) => {
-    condition = false;
-    array = [];
-
-    for (i = 0; !condition; i++) {
-        await client.query(("Select estHarvest From field_info WHERE fieldnum = " + i)).then(data => {
-			if (data == NULL) { condition == true; }
-			else { array.push(data); }
-		});
-        num++;
-    };
-
-	res.send(array);
+app.get('/query/getHarvestDays', async(req, res) => {
+	try {
+		condition = false;
+		harvestDays = [];
+	
+		for (i = 0; !condition; i++) {
+			const result = await client.query(("Select estHarvest From field_info WHERE fieldnum = ", i, ""));
+			if (result.rows.length = 0) { 
+				condition == true; 
+			} else { 
+				harvestDays.push(result.rows[0]); 
+			}
+		};
+	
+		console.log(harvestDays);
+		res.json(harvestDays);
+	} catch (err) {
+		console.error('Database error:', err);
+		res.status(500).json({ error: 'Internal Server Error' });
+	} finally {
+		client.release();
+	}
 });
 
 app.post('/query/getDate', async(req, res) => {
-    const result = await client.query(("SELECT * FROM field_info"));
+	// var queryString = (`SELECT estHarvest FROM field_info WHERE estHarvest LIKE '`, req.body.date, `%' ;`)
+	console.log("DATE: " + req.body.date);
+    const result = await client.query(("SELECT estHarvest FROM field_info WHERE estHarvest = ", req.body.date)); // NEEDS TO BE CHANGED TO GET THE INFO FROM THE DATE
 	console.log(result.rows);
 });
 

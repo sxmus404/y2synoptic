@@ -14,16 +14,18 @@ const dateCurr = document.getElementById("calendar-nav-curr");
 const iconPrev = document.getElementById("calendar-nav-prev");
 const iconNext = document.getElementById("calendar-nav-next");
 
-// var harvests = [];
+var harvests = [];
 
-// fetch('/query/getHarvestDays', {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json'
-//     }
-// }).then(response => response.json()).then(data => {
-//     // ADD THE DATES IN DATA TO THE HARVEST ARRAY
-// }).catch(error => { console.error("Error: ", error) });
+fetch('/query/getHarvestDays')
+.then(response => {
+    if (!response.ok) {
+        return response.text().then(text => { throw new Error(text) });
+    }
+    return response.json();
+})
+.then(data => {
+    console.log(data);
+}).catch(err => { console.error("Error: ", err) });
 
 function manipulateCalendar() {
     let firstDay = new Date(cal.year, cal.month, 1).getDay();
