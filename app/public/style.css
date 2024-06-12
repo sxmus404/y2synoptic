@@ -3,6 +3,7 @@
     --dark: #464246;
     --accent: #F37C00;
     --hidden: #D1D1D1;
+    --other: #2D45FF;
 }
 
 body, html {
@@ -285,7 +286,7 @@ a {
 }
 
 .calendar-days-harvest {
-    color: pink;
+    color: var(--other);
 }
 
 .calendar-days-unfocus {
