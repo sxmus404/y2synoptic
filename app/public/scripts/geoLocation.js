@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 	showPosition();
 	
   });
-
+function centerMap() {
+	map.setView([lat_, lon_], 19);
+};
 function showPosition() {
 	if(navigator.geolocation) {
 		var container = L.DomUtil.get('map-main');
@@ -25,8 +27,7 @@ function showPosition() {
 			lat_ = 12.58973689927903;
 			lon_ = 106.925101118714666;
 			var positionInfo = "Your current position is (" + "Latitude: " + lat_ + ", " + "Longitude: " + lon_ + ")";
-			document.getElementById("map-result").innerHTML = positionInfo;
-			map = L.map('map-main').setView([position.coords.latitude, position.coords.longitude], 19);
+			map = L.map('map-main').setView([lat_, lon_], 19);
 			L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 20,
 				minZoom:18,
@@ -34,8 +35,9 @@ function showPosition() {
 			}).addTo(map);
 			//Current Location
 			L.marker([lat_, lon_]).addTo(map).bindPopup("You Are Here").openPopup();
-			map.on('click', onMapClick)
 			
+			map.on('click', onMapClick)
+
 			var fields = [
 				{lat: 12.5898727551881, lng: 106.92497569790845, fieldNum: 1},
 				{lat: 12.589786370543436, lng: 106.92496228686365, fieldNum: 2},
