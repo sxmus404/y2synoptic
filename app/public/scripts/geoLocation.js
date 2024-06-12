@@ -105,6 +105,7 @@ function onMarkerClick(e){
 	console.log(e.i);
 }
 function onMapClick(e) {
+	console.log(e.latlng)
 	popup = L.popup();
     popup
         .setLatLng(e.latlng)
