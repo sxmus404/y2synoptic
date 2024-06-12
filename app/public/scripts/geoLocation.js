@@ -97,14 +97,7 @@ function getFieldInfo(group) {
 				}
 				else{
 					col4.innerHTML = "unknown owner";
-				}
-
-
-				//console.log(id);
-				// col1.innerHTML = id;
-				// col2.innerHTML = type;
-				// col3.innerHTML = harvestDate;
-				// col4.innerHTML = owner;						
+				}					
 		}).catch(err => {
 			console.error("Error: ", err)
 		});
