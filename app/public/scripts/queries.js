@@ -57,7 +57,7 @@ var fieldForm = document.getElementById("field-form");
 fieldForm.addEventListener("click", function(e) {
     e.preventDefault();
     const addField = {
-        fieldNum: "21",
+        fieldNum: "900",
         cropType: "Potato",
         datePlanted: "2004/11/11",
         fieldOwner: "Zack"
@@ -65,11 +65,13 @@ fieldForm.addEventListener("click", function(e) {
 
     fetch('/query/addField', {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(addField)
     }).then(response => response.json()).then(data => {
        // WHAT TO DO WITH THE DATA RETURNED HERE
+
        console.log("cummy")
-    }).catch(error => {
-        console.error("Error: ", error)
     });
 });
