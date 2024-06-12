@@ -9,6 +9,7 @@
         <script src="scripts/translator.js" defer> </script>
         <script src="scripts/geoLocation.js" defer> </script>
         <script src="scripts/weather.js"> </script>
+        <script src="scripts/queries.js" defer></script>
         <link rel="stylesheet" type="text/css" href="style.css">
 
         <script src="https://kit.fontawesome.com/680ac0a13f.js" crossorigin="anonymous"> </script>
@@ -42,7 +43,23 @@
             </div>
 
             <div class="flex-body-side"> 
+
+                <form id="field-form" >
+                    <label for="field-number">Field Number</label>
+                    <input type="text" id="field-number" name="field-number"> <br>
+                    <label for="crop-type">Crop</label>
+                    <select type="text" id="crop-type" name="crop-type">
+                        <option></option>
+                    </select><br>
+                    <label for="date-planted">Date Planted</label>
+                    <input type="date" id="date-planted" name="date-planted"><br>
+                    <label for="field-owner">Field Owner</label>
+                    <input type="text" id="field-owner" name="field-owner"><br>
+                    <input type="submit" id="map-button" value="Add">
+                </form>
+               
                 <a href="/query/getCrop" method="POST"> CLICK </a>
+
             </div>
             
             <div class="flex-body-footer"> 
