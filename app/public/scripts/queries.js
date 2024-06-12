@@ -1,10 +1,5 @@
 const { Client } = require('pg');
 
-
-
-
-
-
 const client = new Client({
 
     user: 'postgres',
@@ -13,7 +8,7 @@ const client = new Client({
 
     database: 'postgres', //Connect to Sam's server
 
-    password: 'securepassword',
+    password: 'zackisgay',
 
     port: 5432,
 
@@ -107,7 +102,3 @@ function getAllFieldInfo(){
 return array;
 
 }
-
-
-
-
