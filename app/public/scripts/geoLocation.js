@@ -95,7 +95,7 @@ function showPosition() {
 						var temp = data['0'];
 						var id = temp['fieldid'];
 						var type = temp['croptype'];
-						var harvestDate = temp['estharvest'];
+						var harvestDate = temp['estharvest'].split('T')[0];
 						var owner = temp['fieldowner'];
 						//console.log(id);
 						col1.innerHTML = id;
