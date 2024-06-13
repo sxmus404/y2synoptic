@@ -155,6 +155,7 @@ a {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    overflow-y: scroll;
 }
 
 .flex-body-farming > * {
@@ -167,9 +168,9 @@ a {
     font-size: 16px;
     padding: 1vh 1vw;
     border: 2px solid var(--dark);
-    max-width: 48vw;
+    max-width: 28vw;
+    max-height: 76vh;
     text-wrap: wrap;
-    height: auto;
 }
 
 .flex-body-about {
@@ -439,8 +440,8 @@ a {
     text-align: left;
     padding: 1vh 1vw;
     margin: 1vh 0vw;
-    height: 34vh;
-    max-height: 34vh;
+    height: 27vh;
+    max-height: 27vh;
     font-size: 16px;
     overflow-y: scroll;
 }
@@ -450,8 +451,8 @@ a {
     text-align: left;
     padding: 1vh 1vw;
     margin: 1vh 0vw;
-    height: 34vh;
-    max-height: 34vh;
+    height: 42vh;
+    max-height: 42vh;
     font-size: 16px;
     overflow-y: scroll;
 }
