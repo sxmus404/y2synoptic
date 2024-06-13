@@ -455,10 +455,26 @@ a {
 #field-button:hover { 
     background-color: var(--accent);
 }
+
+#delete-button {
+    padding: 1vh 1vw;
+    border: 2px solid var(--dark);
+    background-color: var(--light);
+    cursor: pointer;
+    width: 97.5%;
+    height: 4vh;
+    margin-top: auto;
+    margin-left: 5px;
+}
+
+#delete-button:hover { 
+    background-color: var(--accent);
+}
+
 .fieldClick{
-    background-color: #cccccc;
+    background-color: var(--light);
     border-style: solid;
-    border-color:black;
+    border:2px solid var(--dark);
     font-weight:bold;
     margin: 6px;
     font-size: 30;

@@ -6,6 +6,7 @@ var lat_;
 var lon_;
 var points = [];
 var popup;
+var currentField;
 var group;
 var fields;
 let idValue;
@@ -47,6 +48,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
 	showPosition();
 	
   });
+
+function deleteSelected() {
+	fetch('/query/deleteEntry', {
+		method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({fieldNum: currentField})
+	});
+  window.location.reload();
+};
+
 function createMarkers() {
 	points = fields.map(function (datum) {
 		return L.circleMarker(datum, {radius: 15, fieldNum: datum.fieldNum}).bindPopup("Field Number: " + datum.fieldNum);
@@ -54,9 +67,12 @@ function createMarkers() {
 	group = L.featureGroup(points);
 	group.addTo(map);
 }
+
 function getFieldInfo(group) {
 	group.on("click", function (e) {
 		//console.log(e.sourceTarget.options.fieldNum);
+		currentField = e.sourceTarget.options.fieldNum;
+		//console.log(currentField);
 		fetch('/query/getInfo', {
 			method: 'POST',
 			headers: {
@@ -75,7 +91,7 @@ function getFieldInfo(group) {
 					col1.innerHTML = id;
 				}
 				else{
-					col1.innerHTML = "unknown fieldID";
+					col1.innerHTML = "unknown fieldNum";
 				}
 
 				if(temp!=null){

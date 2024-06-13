@@ -124,6 +124,12 @@ app.post('/query/addField', async(req, res) => {
 	res.redirect('/');		
 });
 
+app.post('/query/deleteEntry', async(req, res) => {
+	var queryDel = ("DELETE FROM field_info WHERE fieldnum =" + req.body.fieldNum)
+	await client.query(queryDel);
+	res.redirect('/');
+});
+
 app.listen(port, ()=> {
   	console.log('Server Running');
   	console.log('http://localhost:3000/');
