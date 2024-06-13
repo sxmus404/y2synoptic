@@ -151,7 +151,7 @@ function showPosition() {
 			map = L.map('map-main').setView([lat_, lon_], 19);
 			L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 20,
-				minZoom:18,
+				minZoom: 15,
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			}).addTo(map);
 			//Current Location
@@ -160,7 +160,7 @@ function showPosition() {
 			map.on('click', onMapClick)
 				
 			createMarkers();
-
+ 
 			getFieldInfo(group);
 
 
