@@ -1,3 +1,5 @@
+
+
 //33ab05142e62d332c43e4a6bd89e6df3 weather API key
 var map;
 var lat_;
@@ -66,33 +68,34 @@ function getFieldInfo(group) {
 		.then(data => {
 			console.log(data);
 				var temp = data['0'];
-				var id = temp['fieldnum'];
-				var type = temp['croptype'];
-				var harvestDate = temp['estharvest'];
-				var owner = temp['fieldowner'];
+				//console.log(e.sourceTarget.options.fieldNum);
+				var id = e.sourceTarget.options.fieldNum;
 
-				if(id!=""){
+				if(id!=null){
 					col1.innerHTML = id;
 				}
 				else{
 					col1.innerHTML = "unknown fieldID";
 				}
 
-				if(type!=""){
+				if(temp!=null){
+					var type = temp['croptype'];
 					col2.innerHTML = type;
 				}
 				else{
 					col2.innerHTML = "unkown crop type";
 				}
 
-				if(harvestDate!=""){
+				if(temp!=null){
+					var harvestDate = temp['estharvest'];
 					col3.innerHTML = harvestDate;;
 				}
 				else{
 					col3.innerHTML = "unkown harvest date";
 				}
 
-				if(owner!=""){
+				if(temp!=null){
+					var owner = temp['fieldowner'];
 					col4.innerHTML = owner;	;
 				}
 				else{
