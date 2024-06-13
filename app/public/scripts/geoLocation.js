@@ -126,10 +126,6 @@ function showPosition() {
 				
 			createMarkers();
 
-			var group = L.featureGroup(points);
-			group.addTo(map);
-				
-
 			getFieldInfo(group);
 
 
