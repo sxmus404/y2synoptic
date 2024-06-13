@@ -95,7 +95,7 @@ app.post('/query/getInfo', async(req, res) => {
 app.post('/query/addField', async(req, res) => {
 	try {
 		if (req.body.fieldNum === null) { console.log("Not enough info provided"); return; }
-		if (req.body.cropType === null) { console.log("Not enough info provided"); ; }
+		if (req.body.cropType === null) { console.log("Not enough info provided"); return; }
 		if (req.body.datePlanted === null) { console.log("Not enough info provided"); return; }
 		if (req.body.fieldOwner === null) { console.log("Not enough info provided"); return; }
 
@@ -121,6 +121,7 @@ app.post('/query/addField', async(req, res) => {
 	} catch (err) {
 		console.error(err);
 	};
+	res.redirect('/');		
 });
 
 app.listen(port, ()=> {
