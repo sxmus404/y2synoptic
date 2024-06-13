@@ -101,6 +101,7 @@ function getFieldInfo(group) {
 				else{
 					col4.innerHTML = "unknown owner";
 				}					
+
 		}).catch(err => {
 			console.error("Error: ", err)
 		});
