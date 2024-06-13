@@ -194,8 +194,17 @@ a {
     flex-direction: row;
 }
 
-.about-info > h3 {
+.about-info-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-info-content > h3 {
     font-size: 24px;
+}
+
+.about-info-content > p {
+    font-size: 18px;
 }
 
 .about-info > img {
