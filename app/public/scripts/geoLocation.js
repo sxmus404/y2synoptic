@@ -87,7 +87,7 @@ function getFieldInfo(group) {
 				}
 
 				if(temp!=null){
-					var harvestDate = temp['estharvest'];
+					var harvestDate = temp['estharvest'].split('T')[0];
 					col3.innerHTML = harvestDate;;
 				}
 				else{
