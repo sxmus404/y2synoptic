@@ -176,8 +176,41 @@ a {
     background-color: var(--light);
     color: var(--dark);
     width: 100vw;
-    height: 80vh;
+    max-height: 80vh;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1vh 1vw;
+}
+
+.about-info {
+    border: 2px solid var(--dark);
+    height: 22vh;
+    text-align: left;
+    margin: 1vh 1vw;
+    padding: 0 1vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.about-info-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-info-content > h3 {
+    font-size: 24px;
+}
+
+.about-info-content > p {
+    font-size: 18px;
+}
+
+.about-info > img {
+    padding: 1vh 1vw;
+    max-height: 22vh;
+    margin-left: auto;
 }
 
 .flex-body-calendar {
